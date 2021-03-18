@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Loki
+704_loki)# Home Assistant Add-on: Loki
 _Like Prometheus, but for logs!_
 
 ⚠ **Pre-Alpha Stage** - If you stumbled across this, it's in a very early stage. Expect issues and things may change at any time.
@@ -24,10 +24,11 @@ expects to be deployed in the full PLG stack:
 ### Promtail
 
 Promtail is also made by Grafana, its only job is to scrape logs and send them
-to Loki. The easiest way to get it set up is to install the [Promtail add-on]
+to Loki. The easiest way to get it set up is to install the
+[Promtail add-on](https://github.com/mdegat01/hassio-addons/tree/main/promtail)
 in this same repository.
 
-[Show add-on link]
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_promtail)
 
 This isn't the only way to get logs into Loki though. You may want to deploy
 Promtail yourself to ship logs from other systems, you can find installation
@@ -48,6 +49,8 @@ The easiest way to install Grafana is to use the
 there you can follow the guide above to add Loki as a data source. When prompted
 for Loki's URL in the Grafana add-on, use `http://39bd2704-loki:3100` (or
 `https://39bd2704-loki:3100` if you enabled SSL).
+
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_grafana)
 
 ### LogCLI
 

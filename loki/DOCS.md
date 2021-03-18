@@ -67,8 +67,9 @@ to Loki (mTLS).
 ### Option: `config_path`
 
 Absolute path to a custom config file for Loki. By default this addon will run
-Loki using the config file [here]. If you would prefer different options then
-you can create your own config file to use instead and provide the path to it.
+Loki using the config file [here](https://github.com/mdegat01/hassio-addons/blob/main/loki/rootfs/etc/loki/default-config.yaml).
+If you would prefer different options then you can create your own config file
+to use instead and provide the path to it.
 
 Review the [documentation](https://grafana.com/docs/loki/latest/configuration/)
 to learn about creating a config file for Loki. You can also see examples

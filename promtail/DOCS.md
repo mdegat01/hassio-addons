@@ -89,9 +89,10 @@ This field is required if `client.certfile` is provided
 ### Option: `skip_default_scrape_config`
 
 Promtail will scrape the `systemd journal` using a pre-defined config you can
-find [here]. If you only want it to look at specific log files you specify or
-you don't like the default config and want to adjust it, set this to `true`.
-Then the only scrape configs used will be the ones you specify in the
+find [here](https://github.com/mdegat01/hassio-addons/blob/main/promtail/rootfs/etc/promtail/default-scrape-config.yaml).
+If you only want it to look at specific log files you specify or you don't 
+like the default config and want to adjust it, set this to `true`. Then the 
+only scrape configs used will be the ones you specify in the
 `additional_scrape_configs` file.
 
 ### Option: `additional_scrape_configs`
@@ -124,7 +125,7 @@ for more info on the options available and how to configure them. The
 documentation also provides [other examples](https://grafana.com/docs/loki/latest/clients/promtail/configuration/#example-static-config)
 you can use.
 
-### Port: 9080/tcp
+### Port: `9080/tcp`
 
 Promtail exposes an HTTP server on this port. There's not a lot of documentation
 on what this is used for. From what is there I believe it is primarily used in

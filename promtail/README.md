@@ -43,6 +43,8 @@ repository. By default this add-on is set up to collect all logs from the system
 journal and ship them over to that add-on. If that's what you want there is no
 additional configuration required for either.
 
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_loki)
+
 Alternatively you can deploy Loki somewhere else. Take a look at the
 [Loki documentation](https://grafana.com/docs/loki/latest/overview/) for info on
 setting up a Loki deployment and connecting Promtail to it.
@@ -55,7 +57,9 @@ to use the [Grafana community add-on](https://github.com/hassio-addons/addon-gra
 From there you can find Loki in the list of data sources and configure the
 connection (see [Loki in Grafana](https://grafana.com/docs/loki/latest/getting-started/grafana/)).
 If you did choose to use the Loki add-on you can find additional instructions in
-the add-on's documentation.
+[the add-on's documentation](https://github.com/mdegat01/hassio-addons/tree/main/loki#grafana).
+
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_grafana)
 
 ### Grafana Cloud
 
