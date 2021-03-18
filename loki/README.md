@@ -2,6 +2,7 @@
 _Like Prometheus, but for logs!_
 
 [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmdegat01%2Fhassio-addons)
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_loki)
 
 [Grafana Loki](https://grafana.com/oss/loki/) is a horizontally-scalable,
 highly-available, multi-tenant log aggregation system inspired by Prometheus. It
@@ -43,8 +44,8 @@ a guide on how to connect the two [here](https://grafana.com/docs/loki/latest/ge
 The easiest way to install Grafana is to use the
 [Grafana community add-on](https://github.com/hassio-addons/addon-grafana). From
 there you can follow the guide above to add Loki as a data source. When prompted
-for Loki's URL in the Grafana add-on, use `http://local-loki:3100` (or
-`https://local-loki:3100` if you enabled SSL).
+for Loki's URL in the Grafana add-on, use `http://39bd2704-loki:3100` (or
+`https://39bd2704-loki:3100` if you enabled SSL).
 
 ### LogCLI
 
@@ -79,7 +80,7 @@ rm -f /tmp/logcli.zip
 ```
 You also need to add the following to your `.bash_profile` or `.zshrc` file:
 ```bash
-export LOKI_ADDR=http://local-loki:3100
+export LOKI_ADDR=http://39bd2704-loki:3100
 ```
 Switch to `https` if you enabled SSL. The LogCLI doc has the full list of
 possible exports you may need depending on how you deployed Loki.

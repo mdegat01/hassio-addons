@@ -14,6 +14,7 @@ First add the repository to the add-on store (`https://github.com/mdegat01/hassi
 
 Then find the add-on in the store and click install:
 
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_promtail)
 
 ## Default Setup
 
@@ -34,7 +35,7 @@ the configuration options.
 Example add-on configuration:
 ```yaml
 client:
-  url: http://local-loki:3100
+  url: http://39bd2704-loki:3100
   username: loki
 	password: secret
   cafile: ca.pem
@@ -48,7 +49,7 @@ log_level: info
 
 The URL of the Loki deployment Promtail should ship logs to.
 
-If you use the Loki add-on, this will be `http://local-loki:3100` (unless you
+If you use the Loki add-on, this will be `http://39bd2704-loki:3100` (unless you
 enabled `ssl`, then change it to `https`). If you use Grafana Cloud then the URL
 will look like this: `https://<User>:<Your Grafana.com API Key>@logs-prod-us-central1.grafana.net/api/prom/push`
 ([see here for more info](https://grafana.com/docs/grafana-cloud/quickstart/logs_promtail_linuxnode/)).

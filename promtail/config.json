@@ -1,7 +1,7 @@
 {
   "name": "Promtail",
-  "url": "https://grafana.com/oss/loki/",
-  "version": "0.2",
+  "url": "https://github.com/mdegat01/hassio-addons/tree/main/promtail",
+  "version": "0.3",
   "slug": "promtail",
   "ingress": false,
   "ingress_port": 0,
@@ -22,7 +22,7 @@
   },
   "options": {
     "client": {
-      "url": "http://local-loki:3100/loki/api/v1/push"
+      "url": "http://39bd2704-loki:3100/loki/api/v1/push"
     },
     "log_level": "info"
   },
