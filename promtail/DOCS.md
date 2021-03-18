@@ -37,7 +37,7 @@ Example add-on configuration:
 client:
   url: http://39bd2704-loki:3100
   username: loki
-	password: secret
+  password: secret
   cafile: ca.pem
 additional_scrape_configs: /share/promtail/scrape_configs.yaml
 log_level: info
