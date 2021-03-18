@@ -1,4 +1,4 @@
-704_loki)# Home Assistant Add-on: Loki
+# Home Assistant Add-on: Loki
 _Like Prometheus, but for logs!_
 
 ⚠ **Pre-Alpha Stage** - If you stumbled across this, it's in a very early stage. Expect issues and things may change at any time.
