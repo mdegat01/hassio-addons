@@ -2,6 +2,7 @@
 
 ⚠ **Pre-Alpha Stage** - If you stumbled across this, it's in a very early stage.
 Expect issues and things may change at any time.
+
 ⛔ **Known Issue** - This add-on is waiting on upcoming supervisor functionality
 to function, specifically [this PR](https://github.com/home-assistant/supervisor/pull/2722).
 Once that makes its way into the supervisor release I will update the add-on
