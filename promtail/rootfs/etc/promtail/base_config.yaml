@@ -6,5 +6,5 @@ server:
 positions:
   filename: /data/promtail/positions.yaml
 
-client:
-  url: "${URL}"
+clients:
+- url: "${URL}"

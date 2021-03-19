@@ -38,7 +38,7 @@ client:
   url: http://39bd2704-loki:3100
   username: loki
   password: secret
-  cafile: ca.pem
+  cafile: /ssl/ca.pem
 additional_scrape_configs: /share/promtail/scrape_configs.yaml
 log_level: info
 ```
@@ -66,8 +66,8 @@ provided.
 
 ### Option: `client.cafile`
 
-The path to the CA certificate used to sign Loki's certificate if Loki is using
-a self-signed certificate for SSL. This file must be in the `/ssl` folder.
+The absolute path to the CA certificate used to sign Loki's certificate if Loki
+is using a self-signed certificate for SSL.
 
 ### Option: `client.servername`
 
@@ -77,14 +77,14 @@ lists a public URL and you're connecting locally).
 
 ### Option: `client.certfile`
 
-The path to a certificate for client-authentication if Loki is using mTLS to
-authenticate clients. This file must be in the `/ssl` folder.
+The absolute path to a certificate for client-authentication if Loki is using 
+mTLS to authenticate clients.
 
 ### Option: `client.keyfile`
 
-The path to the key for the client-authentication certificate if Loki is using
-mTLS to authenticate clients. This file must be in the `/ssl` folder. **Note**:
-This field is required if `client.certfile` is provided
+The absolute path to the key for the client-authentication certificate if Loki
+is using mTLS to authenticate clients. **Note**: This field is required if 
+`client.certfile` is provided
 
 ### Option: `skip_default_scrape_config`
 

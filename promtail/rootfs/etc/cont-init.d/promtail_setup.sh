@@ -20,15 +20,15 @@ fi
 
 if bashio::config.exists 'client.cafile'; then
     bashio::log.info "Adding TLS to client config..."
-    if ! bashio::fs.file_exists "/ssl/$(bashio::config 'client.cafile')"; then
+    if ! bashio::fs.file_exists "$(bashio::config 'client.cafile')"; then
         bashio::log.fatal
         bashio::log.fatal "The file specified for 'cafile' does not exist!"
-        bashio::log.fatal "Ensure the ca file exists and is placed in the /ssl directory"
+        bashio::log.fatal "Ensure the CA certificate file exists and full path is provided"
         bashio::log.fatal
         bashio::exit.nok
     fi
     echo "  tls_config:" >> $config_file
-    echo "    ca_file: /ssl/$(bashio::config 'client.cafile')" >> $config_file
+    echo "    ca_file: $(bashio::config 'client.cafile')" >> $config_file
 
     if bashio::config.exists 'client.servername'; then
         echo "    server_name: $(bashio::config 'client.servername')" >> $config_file
@@ -37,22 +37,22 @@ if bashio::config.exists 'client.cafile'; then
     if bashio::config.exists 'client.certfile'; then
         bashio::log.info "Adding mTLS to client config..."
         bashio::config.require 'client.keyfile' "'client.certfile' is specified"
-        if ! bashio::fs.file_exists "/ssl/$(bashio::config 'client.certfile')"; then
+        if ! bashio::fs.file_exists "$(bashio::config 'client.certfile')"; then
             bashio::log.fatal
             bashio::log.fatal "The file specified for 'certfile' does not exist!"
-            bashio::log.fatal "Ensure the certificate file exists and is placed in the /ssl directory"
+            bashio::log.fatal "Ensure the certificate file exists and full path is provided"
             bashio::log.fatal
             bashio::exit.nok
         fi
-        if ! bashio::fs.file_exists "/ssl/$(bashio::config 'client.keyfile')"; then
+        if ! bashio::fs.file_exists "$(bashio::config 'client.keyfile')"; then
             bashio::log.fatal
             bashio::log.fatal "The file specified for 'keyfile' does not exist!"
-            bashio::log.fatal "Ensure the key file exists and is placed in the /ssl directory"
+            bashio::log.fatal "Ensure the key file exists and full path is provided"
             bashio::log.fatal
             bashio::exit.nok
         fi
-        echo "    cert_file: /ssl/$(bashio::config 'client.certfile')" >> $config_file
-        echo "    key_file: /ssl/$(bashio::config 'client.keyfile')" >> $config_file
+        echo "    cert_file: $(bashio::config 'client.certfile')" >> $config_file
+        echo "    key_file: $(bashio::config 'client.keyfile')" >> $config_file
     fi
 fi
 

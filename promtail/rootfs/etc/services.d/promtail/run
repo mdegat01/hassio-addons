@@ -15,8 +15,8 @@ case "$(bashio::config 'log_level')" in \
 esac;
 bashio::log.info "Loki log level set to ${log_level}"
 
-declare URL="$(bashio::config 'client.url')"
-declare LOG_LEVEL="$(bashio::config 'log_level')"
+export "URL=$(bashio::config 'client.url')"
+export "LOG_LEVEL=$(bashio::config 'log_level')"
 
 bashio::log.info "Handing over control to Promtail..."
 promtail \
