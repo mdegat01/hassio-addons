@@ -1,7 +1,7 @@
 {
   "name": "Loki",
   "url": "https://github.com/mdegat01/hassio-addons/tree/main/loki",
-  "version": "0.4",
+  "version": "0.5",
   "slug": "loki",
   "ingress": false,
   "ingress_port": 0,
