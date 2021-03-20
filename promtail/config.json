@@ -1,7 +1,7 @@
 {
   "name": "Promtail",
   "url": "https://github.com/mdegat01/hassio-addons/tree/main/promtail",
-  "version": "0.7",
+  "version": "0.8",
   "slug": "promtail",
   "ingress": false,
   "ingress_port": 0,

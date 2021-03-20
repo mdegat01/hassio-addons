@@ -15,9 +15,9 @@ if bashio::config.exists 'client.username'; then
     bashio::log.info 'Adding basic auth to client config...'
     bashio::config.require 'client.password' "'client.username' is specified"
     {
-        echo "  basic_auth:"
-        echo "    username: $(bashio::config 'client.username')"
-        echo "    password: $(bashio::config 'client.password')"
+        echo "    basic_auth:"
+        echo "      username: $(bashio::config 'client.username')"
+        echo "      password: $(bashio::config 'client.password')"
     } >> $config_file
 fi
 
@@ -31,12 +31,12 @@ if bashio::config.exists 'client.cafile'; then
         bashio::exit.nok
     fi
     {
-        echo "  tls_config:"
-        echo "    ca_file: $(bashio::config 'client.cafile')"
+        echo "    tls_config:"
+        echo "      ca_file: $(bashio::config 'client.cafile')"
     } >> $config_file
 
     if bashio::config.exists 'client.servername'; then
-        echo "    server_name: $(bashio::config 'client.servername')" >> $config_file
+        echo "      server_name: $(bashio::config 'client.servername')" >> $config_file
     fi
 
     if bashio::config.exists 'client.certfile'; then
@@ -57,8 +57,8 @@ if bashio::config.exists 'client.cafile'; then
             bashio::exit.nok
         fi
         {
-            echo "    cert_file: $(bashio::config 'client.certfile')"
-            echo "    key_file: $(bashio::config 'client.keyfile')"
+            echo "      cert_file: $(bashio::config 'client.certfile')"
+            echo "      key_file: $(bashio::config 'client.keyfile')"
         } >> $config_file
     fi
 fi
@@ -91,5 +91,5 @@ if bashio::config.exists 'additional_scrape_configs'; then
             $def_scrape_configs "$add_scrape_configs" >> $config_file
     fi
 else
-    cat $def_scrape_configs >> $config_file
+    yq -NP e '[] + .' $def_scrape_configs >> $config_file
 fi
