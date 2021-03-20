@@ -1,15 +1,11 @@
 {
   "name": "Loki",
   "url": "https://github.com/mdegat01/hassio-addons/tree/main/loki",
-  "version": "0.6",
+  "version": "0.7",
   "slug": "loki",
   "ingress": false,
   "ingress_port": 0,
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armv7"
-  ],
+  "arch": ["aarch64", "amd64", "armv7"],
   "description": "Loki for Home Assistant",
   "startup": "system",
   "boot": "manual",

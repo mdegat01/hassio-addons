@@ -1,4 +1,3 @@
-
 # Home Assistant Add-on: Promtail
 
 [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/) is an agent
@@ -33,6 +32,7 @@ the configuration options.
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
 Example add-on configuration:
+
 ```yaml
 client:
   url: http://39bd2704-loki:3100
@@ -42,8 +42,8 @@ client:
 additional_scrape_configs: /share/promtail/scrape_configs.yaml
 log_level: info
 ```
-**Note**: _This is just an example, don't copy and paste it! Create your own!_
 
+**Note**: _This is just an example, don't copy and paste it! Create your own!_
 
 ### Option: `client.url` (required)
 
@@ -77,21 +77,21 @@ lists a public URL and you're connecting locally).
 
 ### Option: `client.certfile`
 
-The absolute path to a certificate for client-authentication if Loki is using 
+The absolute path to a certificate for client-authentication if Loki is using
 mTLS to authenticate clients.
 
 ### Option: `client.keyfile`
 
 The absolute path to the key for the client-authentication certificate if Loki
-is using mTLS to authenticate clients. **Note**: This field is required if 
+is using mTLS to authenticate clients. **Note**: This field is required if
 `client.certfile` is provided
 
 ### Option: `skip_default_scrape_config`
 
 Promtail will scrape the `systemd journal` using a pre-defined config you can
 find [here](https://github.com/mdegat01/hassio-addons/blob/main/promtail/rootfs/etc/promtail/default-scrape-config.yaml).
-If you only want it to look at specific log files you specify or you don't 
-like the default config and want to adjust it, set this to `true`. Then the 
+If you only want it to look at specific log files you specify or you don't
+like the default config and want to adjust it, set this to `true`. Then the
 only scrape configs used will be the ones you specify in the
 `additional_scrape_configs` file.
 
@@ -105,16 +105,18 @@ change the system journal is scraped by using this in conjunction with
 then this field becomes required (otherwise there would be no scrape configs)
 
 The file must contain only a YAML list of scrape configs. Here's an example of the contents of this file:
+
 ```yaml
 - job_name: zigbee2mqtt_messages
   pipeline_stages:
   static_configs:
-  - targets:
-    - localhost
-    labels:
-      job: zigbee2mqtt_messages # A `job` label is fairly standard in prometheus and useful for linking metrics and logs.
-      __path__: /share/zigbee2mqtt/log/**.txt  # The path matching uses a third party library: https://github.com/bmatcuk/doublestar
+    - targets:
+        - localhost
+      labels:
+        job: zigbee2mqtt_messages # A `job` label is fairly standard in prometheus and useful for linking metrics and logs.
+        __path__: /share/zigbee2mqtt/log/**.txt # The path matching uses a third party library: https://github.com/bmatcuk/doublestar
 ```
+
 This particular example would cause Promtail to scrape up the log of published
 MQTT messages that the [Zigbee2MQTT add-on](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt)
 creates in addition to the normal journal logs.

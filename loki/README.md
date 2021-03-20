@@ -1,4 +1,5 @@
 # Home Assistant Add-on: Loki
+
 _Like Prometheus, but for logs!_
 
 ⚠ **Pre-Alpha Stage** - If you stumbled across this, it's in a very early stage. Expect issues and things may change at any time.
@@ -17,6 +18,7 @@ Loki isn't a standalone application, it actually doesn't do anything until you
 set up another utility to send logs to it. It's job is to receive logs, index
 them, and make them available to analysis tools such as Grafana. Loki typically
 expects to be deployed in the full PLG stack:
+
 - Promtail to process and ship logs
 - Loki to aggregate and index them
 - Grafana to visualize and monitor them
@@ -61,6 +63,7 @@ will then let you query Loki using [LogQL](https://grafana.com/docs/loki/latest/
 
 To make LogCLI accessible in the SSH add-ons you can set this install script
 to run on startup of the add-on:
+
 ```bash
 #!/bin/bash
 
@@ -83,9 +86,12 @@ mv "/usr/bin/logcli-linux-${BINARCH}" /usr/bin/logcli
 chmod a+x /usr/bin/logcli
 rm -f /tmp/logcli.zip
 ```
+
 You also need to add the following to your `.bash_profile` or `.zshrc` file:
+
 ```bash
 export LOKI_ADDR=http://39bd2704-loki:3100
 ```
+
 Switch to `https` if you enabled SSL. The LogCLI doc has the full list of
 possible exports you may need depending on how you deployed Loki.

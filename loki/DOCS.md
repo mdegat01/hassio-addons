@@ -1,4 +1,5 @@
 # Home Assistant Add-on: Loki
+
 _Like Prometheus, but for logs!_
 
 [Grafana Loki](https://grafana.com/oss/loki/) is a horizontally-scalable,
@@ -35,12 +36,14 @@ configuration there's an option to provide a custom config file.
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
 Example add-on configuration:
+
 ```yaml
 ssl: true
 certfile: fullchain.pem
 keyfile: privkey.pem
 log_level: info
 ```
+
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
 
 ### Option: `ssl`

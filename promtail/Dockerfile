@@ -10,11 +10,18 @@ ARG BUILD_ARCH=amd64
 
 # tzdata required for the timestamp stage to work
 # Backports repo required to get a libsystemd version 246 or newer which is required to handle journal +ZSTD compression
-RUN echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list
 RUN set -eux; \
+    echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list; \
     apt-get update; \
-    apt-get install -qy tzdata ca-certificates; \
-    apt-get install -t buster-backports -qy libsystemd-dev; \
+    apt-get install -qy --no-install-recommends \ 
+        tzdata=2021a-0+deb10u1 \
+        ca-certificates=20200601~deb10u2 \
+        ; \
+    apt-get install -qy --no-install-recommends \
+        -t buster-backports \ 
+        libsystemd-dev=247.3-1~bpo10+1 \
+        ; \
+    update-ca-certificates; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*;
 
 # Add promtail
@@ -28,7 +35,9 @@ ENV YQ_VERSION 4.6.1
 
 # Add yq (and its dependency, jq)
 RUN set -eux; \
-    apt-get install jq; \
+    apt-get install -qy --no-install-recommends \
+        jq=1.5+dfsg-2+b1 \
+        ; \
     case "$BUILD_ARCH" in \
         amd64)  BINARCH='amd64' ;; \
         armhf)   BINARCH='arm' ;; \
@@ -42,7 +51,6 @@ RUN set -eux; \
     chmod a+x /usr/bin/yq; \
     rm -rf /tmp/*; \
     yq -V;
-
 
 COPY rootfs /
 RUN set -eux; \

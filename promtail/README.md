@@ -32,6 +32,7 @@ the add-on.
 
 Promtail isn't a standalone application, it's job is to find logs, process them
 and ship them to Loki. Most likely you want the full PLG stack:
+
 - Promtail to process and ship logs
 - Loki to aggregate and index them
 - Grafana to visualize and monitor them

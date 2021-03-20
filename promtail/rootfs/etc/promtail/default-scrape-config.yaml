@@ -1,3 +1,4 @@
+---
 - job_name: journal
   journal:
     json: false

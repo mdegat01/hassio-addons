@@ -19,7 +19,7 @@ RUN set -eux; \
     apk add --no-cache \
         ca-certificates=20191127-r5 \
         nginx=1.18.0-r13 \
-	    ; \
+        ; \
     update-ca-certificates; \
     nginx -v; \
     rm -f -r /etc/nginx; \
