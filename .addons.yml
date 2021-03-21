@@ -1,0 +1,9 @@
+---
+channel: stable
+addons:
+  loki:
+    repository: mdegat01/addon-loki
+    target: loki
+  promtail:
+    repository: mdegat01/addon-promtail
+    target: promtail
