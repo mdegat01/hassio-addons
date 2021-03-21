@@ -1,0 +1,113 @@
+# mdegat01's Home Assistant Add-ons
+
+![Project Stage][project-stage-shield]
+![Maintenance][maintenance-shield]
+[![License][license-shield]](LICENSE.md)
+
+A hopefully useful collection of HA add-ons made by mdegat01.
+
+## Installation
+
+Click this link and follow the provided directions:
+
+[![Open your Home Assistant instance and show the add add-on repository dialog
+with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url={{ repo | urlencode }})
+
+Or alternatively, copy this URL and add it as a repository in the add-on store:
+
+```txt
+{{ repo }}
+```
+
+## Add-ons provided by this repository
+
+{% for addon in addons %}
+### &#10003; [{{ addon.name }}][addon-{{ addon.target }}]f
+
+![Latest Version][{{ addon.target }}-version-shield]
+![Supports armhf Architecture][{{ addon.target }}-armhf-shield]
+![Supports armv7 Architecture][{{ addon.target }}-armv7-shield]
+![Supports aarch64 Architecture][{{ addon.target }}-aarch64-shield]
+![Supports amd64 Architecture][{{ addon.target }}-amd64-shield]
+![Supports i386 Architecture][{{ addon.target }}-i386-shield]
+
+{{ addon.description }}
+
+[:books: {{ addon.name }} add-on documentation][addon-doc-{{ addon.target }}]
+
+{% endfor %}
+## Releases
+
+Add-on releases are **NOT** based on [Semantic Versioning][semver]. The latest
+build commit SHA hash of each add-on, represents the version number.
+
+## Support
+
+Got questions?
+
+You have several ways to get them answered:
+
+- The Home Assistant [Community Forum][forum]. Each add-on has a thread, I am
+  [CentralCommand][forum-centralcommand] there.
+- The Home Assistant [Discord Chat Server][discord-ha]. Use the #add-ons channel,
+  I am CentralCommand#0913 there.
+
+You could also open an issue here on GitHub. Note, I use a separate
+GitHub repository for each add-on. Please ensure you are creating the issue
+on the correct GitHub repository matching the add-on.
+
+{% for addon in addons %}
+- [Open an issue for the add-on: {{ addon.name }}][{{ addon.target }}-issue]
+{% endfor %}
+
+For a general repository issue or add-on ideas [open an issue here][issue]
+
+## License
+
+MIT License
+
+Copyright (c) 2021 mdegat01
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+{% for addon in addons %}
+[addon-{{ addon.target }}]: {{ addon.repo }}/tree/{{ addon.version }}
+[addon-doc-{{ addon.target}}]: {{ addon.repo }}/blob/{{ addon.version }}/README.md
+[{{ addon.target }}-issue]: {{ addon.repo }}/issues
+[{{ addon.target }}-version-shield]: https://img.shields.io/badge/version-{{ addon.version }}-blue.svg
+{% for arch in ['aarch64', 'amd64', 'armhf', 'armv7', 'i386'] %}
+{% if arch in addon.archs %}
+[{{ addon.target }}-{{ arch }}-shield]: https://img.shields.io/badge/{{ arch }}-yes-green.svg
+{% else %}
+[{{ addon.target }}-{{ arch }}-shield]: https://img.shields.io/badge/{{ arch }}-no-red.svg
+{% endif %}
+{% endfor %}
+{% endfor %}
+[discord-ha]: https://discord.gg/c5DvZ4e
+[forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
+[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
+[forum]: https://community.home-assistant.io?u=CentralCommand
+[mdegat01]: https://github.com/mdegat01
+[issue]: https://github.com/{{ name }}/issues
+[license-shield]: https://img.shields.io/github/license/{{ name }}.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
+[reddit]: https://reddit.com/r/homeassistant
+[semver]: http://semver.org/spec/v2.0.0.html
+[third-party-addons]: https://home-assistant.io/hassio/installing_third_party_addons/
