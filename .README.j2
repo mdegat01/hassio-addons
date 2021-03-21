@@ -38,8 +38,13 @@ Or alternatively, copy this URL and add it as a repository in the add-on store:
 {% endfor %}
 ## Releases
 
-Add-on releases are **NOT** based on [Semantic Versioning][semver]. The latest
-build commit SHA hash of each add-on, represents the version number.
+Releases are based on [Semantic Versioning][semver], and use the format
+of ``MAJOR.MINOR.PATCH``. In a nutshell, the version will be incremented
+based on the following:
+
+- ``MAJOR``: Incompatible or major changes.
+- ``MINOR``: Backwards-compatible new features and enhancements.
+- ``PATCH``: Backwards-compatible bugfixes and package updates.
 
 ## Support
 
