@@ -1,2 +1,3 @@
 ## What’s changed
-- Fixed some readme typos @mdegat01 (#1)
+- CI workflow runs automatically @mdegat01 (#2)
+- Add issue templates @mdegat01 (#3)
