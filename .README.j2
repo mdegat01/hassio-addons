@@ -11,7 +11,7 @@ A hopefully useful collection of HA add-ons made by mdegat01.
 Click this link and follow the provided directions:
 
 [![Open your Home Assistant instance and show the add add-on repository dialog
-with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url={{ repo | urlencode }})
+with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
 
 Or alternatively, copy this URL and add it as a repository in the add-on store:
 
@@ -32,6 +32,8 @@ Or alternatively, copy this URL and add it as a repository in the add-on store:
 ![Supports i386 Architecture][{{ addon.target }}-i386-shield]
 
 {{ addon.description }}
+
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-{{ addon.target }}]
 
 [:books: {{ addon.name }} add-on documentation][addon-doc-{{ addon.target }}]
 
@@ -96,6 +98,7 @@ SOFTWARE.
 [addon-doc-{{ addon.target}}]: {{ addon.repo }}/blob/{{ addon.version }}/README.md
 [{{ addon.target }}-issue]: {{ addon.repo }}/issues
 [{{ addon.target }}-version-shield]: https://img.shields.io/badge/version-{{ addon.version }}-blue.svg
+[add-addon-{{ addon.target }}]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_{{ addon.target }}
 {% for arch in ['aarch64', 'amd64', 'armhf', 'armv7', 'i386'] %}
 {% if arch in addon.archs %}
 [{{ addon.target }}-{{ arch }}-shield]: https://img.shields.io/badge/{{ arch }}-yes-green.svg
@@ -104,6 +107,9 @@ SOFTWARE.
 {% endif %}
 {% endfor %}
 {% endfor %}
+[add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
+[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url={{ repo | urlencode }}
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
