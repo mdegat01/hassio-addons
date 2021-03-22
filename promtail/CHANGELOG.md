@@ -1,3 +1,5 @@
 ## What’s changed
-- CI workflow runs automatically @mdegat01 (#4)
-- Add issue templates @mdegat01 (#5)
+## 🧰 Maintenance
+
+- Adjusted ci on to prevent duplicate runs @mdegat01 (#6)
+- Added labels to dockerfile @mdegat01 (#7)
