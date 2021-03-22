@@ -1,2 +1,2 @@
 ## What’s changed
-- Fix typos and document port better @mdegat01 (#2)
+- Readme.j2 was in the wrong place @mdegat01 (#3)
