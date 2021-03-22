@@ -1,2 +1,3 @@
 ## What’s changed
-- Readme.j2 was in the wrong place @mdegat01 (#3)
+- CI workflow runs automatically @mdegat01 (#4)
+- Add issue templates @mdegat01 (#5)
