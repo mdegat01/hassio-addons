@@ -1,5 +1,13 @@
 ## What’s changed
+## 🚀 Enhancements
+
+- Log config on start if debug log level @mdegat01 (#7)
+
 ## 🧰 Maintenance
 
-- Adjusted ci on to prevent duplicate runs @mdegat01 (#4)
-- Added labels to dockerfile @mdegat01 (#5)
+- Cleaned up formatting in scripts @mdegat01 (#8)
+
+## 📚 Documentation
+
+- Simplified generated addon README & improved DOCS @mdegat01 (#6)
+- Add link to forum post @mdegat01 (#9)

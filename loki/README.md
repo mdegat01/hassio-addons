@@ -4,21 +4,10 @@
 ![Project Stage][project-stage-shield]
 [![License][license-shield]](LICENSE.md)
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
-
-[![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
-[![GitHub Activity][commits-shield]][commits]
+[![Community Forum][forum-shield]][forum]
 
 _Like Prometheus, but for logs!_
-
-[![Open your Home Assistant instance and show the add add-on repository dialog
-with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
 
 ## About
 
@@ -71,29 +60,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[add-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_loki
-[add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/mdegat01/hassio-addons
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[commits-shield]: https://img.shields.io/github/commit-activity/y/mdegat01/addon-loki.svg
-[commits]: https://github.com/mdegat01/addon-loki/commits/main
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [contributors]: https://github.com/mdegat01/addon-loki/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
-[docs]: https://github.com/mdegat01/addon-loki/blob/main/loki/DOCS.md
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
-[forum]: https://community.home-assistant.io?u=CentralCommand
+[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
+[forum]: https://community.home-assistant.io/t/home-assistant-add-on-loki/293731?u=CentralCommand
 [loki]: https://grafana.com/oss/loki/
 [mdegat01]: https://github.com/mdegat01
-[github-actions-shield]: https://github.com/mdegat01/addon-loki/workflows/CI/badge.svg
-[github-actions]: https://github.com/mdegat01/addon-loki/actions
-[i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [issue]: https://github.com/mdegat01/addon-loki/issues
 [license-shield]: https://img.shields.io/github/license/mdegat01/addon-loki.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [releases-shield]: https://img.shields.io/github/release/mdegat01/addon-loki.svg
 [releases]: https://github.com/mdegat01/addon-loki/releases
