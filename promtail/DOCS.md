@@ -113,14 +113,18 @@ the contents of this file:
         __path__: /share/zigbee2mqtt/log/**.txt
 ```
 
-This particular example would cause Promtail to scrape up the log of published
-MQTT messages that the [Zigbee2MQTT add-on][addon-z2m] creates in addition to
-the normal journal logs.
+This particular example would cause Promtail to scrape up the logs MQTT that the
+[Zigbee2MQTT add-on][addon-z2m] makes by default.
 
 Promtail provides a lot of options for configuring scrape configs. See the
 documentation on [scrape_configs][promtail-doc-scrape-configs] for more info on
 the options available and how to configure them. The documentation also provides
 [other examples][promtail-doc-examples] you can use.
+
+I would also recommend reading the [Loki best practices][loki-doc-best-practices]
+guide before making custom scrape configs. Pipelines are pretty powerful but
+avoid making too many labels, it does more harm then good. Instead look into
+what you can do with [LogQL][logql] can do at the other end.
 
 ### Port: `9080/tcp`
 
@@ -268,7 +272,9 @@ SOFTWARE.
 [grafana-cloud]: https://grafana.com/products/cloud/
 [grafana-cloud-docs-promtail]: https://grafana.com/docs/grafana-cloud/quickstart/logs_promtail_linuxnode/
 [issue]: https://github.com/mdegat01/addon-promtail/issues
+[logql]: https://grafana.com/docs/loki/latest/logql/
 [loki-doc]: https://grafana.com/docs/loki/latest/overview/
+[loki-doc-best-practices]: https://grafana.com/docs/loki/latest/best-practices/
 [loki-in-grafana]: https://grafana.com/docs/loki/latest/getting-started/grafana/
 [mdegat01]: https://github.com/mdegat01
 [promtail-doc-examples]: https://grafana.com/docs/loki/latest/clients/promtail/configuration/#example-static-config
