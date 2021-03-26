@@ -1,4 +1,4 @@
 ## What’s changed
-## 🐛 Bug fixes
+## 📚 Documentation
 
-- Handle volatile journal when used @mdegat01 (#13)
+- Add link to forum post @mdegat01 (#14)
