@@ -1,6 +1,8 @@
 ## What’s changed
+## 🐛 Bug fixes
+
+- Fix readiness check for mtls (#14)
 
 ## 🚀 Enhancements
 
-- Add watchdog url to config @mdegat01 (#10)
-- Block access to internal port externally @mdegat01 (#12)
+- Turn off nginx access log @mdegat01 (#14)
