@@ -1,4 +1,4 @@
 ## What’s changed
-## 📚 Documentation
+## 🚀 Enhancements
 
-- Add link to forum post @mdegat01 (#14)
+- Add watchdog url to config @mdegat01 (#15)
