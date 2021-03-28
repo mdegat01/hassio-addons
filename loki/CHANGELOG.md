@@ -1,8 +1,4 @@
 ## What’s changed
-## 🐛 Bug fixes
+## ⬆️ Dependency updates
 
-- Fix readiness check for mtls (#14)
-
-## 🚀 Enhancements
-
-- Turn off nginx access log @mdegat01 (#14)
+- Update base image to 9.1.5 @mdegat01 (#15)
