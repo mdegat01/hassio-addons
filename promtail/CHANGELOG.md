@@ -1,4 +1,8 @@
 ## What’s changed
-## 🚀 Enhancements
+## 🐛 Bug fixes
 
-- Add watchdog url to config @mdegat01 (#15)
+- Add directory empty check for 2021.03.9 @mdegat01 (#17)
+
+## 🧰 Maintenance
+
+- Comment link to base image releases + default @mdegat01 (#16)
