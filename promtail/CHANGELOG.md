@@ -1,8 +1,9 @@
 ## What’s changed
-## 🐛 Bug fixes
+## 🚀 Enhancements
 
-- Add directory empty check for 2021.03.9 @mdegat01 (#17)
+- Improve traceback handling in HA logs @mdegat01 (#18)
+- Add `additional_pipeline_stages` option @mdegat01 (#19)
 
 ## 🧰 Maintenance
 
-- Comment link to base image releases + default @mdegat01 (#16)
+- Minor formatting fixes in setup file @mdegat01 (#20)
