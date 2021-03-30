@@ -1,7 +1,7 @@
 {
   "name": "Loki",
   "url": "https://github.com/mdegat01/addon-loki",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "slug": "loki",
   "arch": [
     "aarch64",
@@ -23,6 +23,7 @@
   },
   "options": {
     "ssl": false,
+    "days_to_keep": 30,
     "log_level": "info"
   },
   "schema": {
@@ -30,6 +31,7 @@
     "certfile": "str?",
     "keyfile": "str?",
     "cafile": "str?",
+    "days_to_keep": "int(2,)?",
     "config_path": "str?",
     "log_level": "list(debug|info|warning|error)?"
   },

@@ -35,6 +35,7 @@ Example add-on configuration:
 ssl: true
 certfile: fullchain.pem
 keyfile: privkey.pem
+days_to_keep: 30
 log_level: info
 ```
 
@@ -61,6 +62,20 @@ The private key file to use for SSL.
 The absolute path to the CA certificate used to sign client certificates. If set,
 clients will be required to present a valid client-authentication certificate to
 connect to Loki (mTLS).
+
+### Option: `days_to_keep`
+
+Number of days of logs to keep, older logs will be purged from the index. If set,
+minimum is `2`, defaults to `30` if omitted.
+
+This value minus one is used to set `retention_period` in [table_manager_config][loki-doc-table-manager-config].
+We subtract one because Loki keeps one extra index period (`24h` in [default config][addon-default-config]).
+And the minimum exists because `0` tells Loki to keep tables indefinitely (and
+the addon to grow without bound). See [table manager][loki-doc-table-manager]
+for more information on how Loki stores data and handles retention.
+
+**Note**: This sets an environmental variable referenced in the [default config][addon-default-config].
+If you use `config_path` below it is ignored unless you reference the same variable.
 
 ### Option: `config_path`
 
@@ -259,6 +274,8 @@ SOFTWARE.
 [loki-doc-best-practices]: https://grafana.com/docs/loki/latest/best-practices/
 [loki-doc-clients]: https://grafana.com/docs/loki/latest/clients/
 [loki-doc-examples]: https://grafana.com/docs/loki/latest/configuration/examples/
+[loki-doc-table-manager]: https://grafana.com/docs/loki/latest/operations/storage/table-manager/
+[loki-doc-table-manager-config]: https://grafana.com/docs/loki/latest/configuration/#table_manager_config
 [loki-in-grafana]: https://grafana.com/docs/loki/latest/getting-started/grafana
 [mdegat01]: https://github.com/mdegat01
 [promtail-doc-installation]: https://grafana.com/docs/loki/latest/clients/promtail/installation/
