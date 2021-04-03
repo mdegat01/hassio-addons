@@ -1,0 +1,52 @@
+{
+  "name": "Hedgedoc",
+  "url": "https://hedgedoc.org/",
+  "version": "0.0.1",
+  "slug": "hedgedoc",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7"
+  ],
+  "description": "Hedgedoc for Home Assistant",
+  "services": [
+    "mysql:want"
+  ],
+  "map": [
+    "ssl"
+  ],
+  "ports": {
+    "3000/tcp": 3000
+  },
+  "ports_description": {
+    "3000/tcp": "HTTP listen port"
+  },
+  "options": {
+    "ssl": false,
+    "session_secret": "changeme",
+    "session_days": 30,
+    "log_level": "info",
+    "env_vars": []
+  },
+  "schema": {
+    "ssl": "bool?",
+    "certfile": "str?",
+    "keyfile": "str?",
+    "session_secret": "password?",
+    "session_days": "int(1,)?",
+    "mysql_host": "str?",
+    "mysql_port": "port?",
+    "mysql_username": "str?",
+    "mysql_password": "password?",
+    "mysql_database": "str?",
+    "reset_database": "bool?",
+    "env_vars": [
+      {
+        "name": "match(^CMD_([A-Z0-9_])+$)",
+        "value": "str"
+      }
+    ],
+    "log_level": "list(debug|info|warning|error)?"
+  },
+  "image": "ghcr.io/mdegat01/hedgedoc/{arch}"
+}
