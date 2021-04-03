@@ -122,7 +122,7 @@ SOFTWARE.
 [add-addon-promtail]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_promtail
 [promtail-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[promtail-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[promtail-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [promtail-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [promtail-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
