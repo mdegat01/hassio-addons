@@ -1,10 +1,10 @@
 ## What’s changed
-## 🚀 Enhancements
+## ✨ New features
 
-- Run Loki as non-root user @mdegat01 (#22)
-- Log unexpected access at watchdog port @mdegat01 (#25)
-- Log non-push, non-watchdog access @mdegat01 (#24)
+- Add armhf support @mdegat01 (#28)
 
-## ⬆️ Dependency updates
+## 🧰 Maintenance
 
-- Bump ludeeus/action-shellcheck from 1.0.0 to 1.1.0 @dependabot (#21)
+- Small formatting fix @mdegat01 (#26)
+- Refactor permissions setup @mdegat01 (#27)
+- Use build image and copy for loki @mdegat01 (#29)
