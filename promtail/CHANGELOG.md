@@ -1,9 +1,14 @@
 ## What’s changed
-## 🚀 Enhancements
+## ✨ New features
 
-- Improve traceback handling in HA logs @mdegat01 (#18)
-- Add `additional_pipeline_stages` option @mdegat01 (#19)
+- Add armhf support @mdegat01 (#25)
+
+## ⬆️ Dependency updates
+
+- Bump ludeeus/action-shellcheck from 1.0.0 to 1.1.0 @dependabot (#23)
+- Small formatting fix and libsystemd-dev update @mdegat01 (#24)
 
 ## 🧰 Maintenance
 
-- Minor formatting fixes in setup file @mdegat01 (#20)
+- Small formatting fix and libsystemd-dev update @mdegat01 (#24)
+- Use apk --print-arch instead of arg @mdegat01 (#26)
