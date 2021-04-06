@@ -1,7 +1,7 @@
 {
   "name": "Hedgedoc",
   "url": "https://github.com/mdegat01/addon-hedgedoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "hedgedoc",
   "arch": [
     "aarch64",
@@ -61,7 +61,7 @@
         "value": "str"
       }
     ],
-    "log_level": "list(debug|info|warning|error)?"
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
   },
   "image": "ghcr.io/mdegat01/hedgedoc/{arch}"
 }

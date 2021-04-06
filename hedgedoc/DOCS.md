@@ -89,9 +89,8 @@ will not work. Check the [HedgeDoc docs][hedgedoc-docs] for more info.
 
 ### Option: `access.use_ssl`
 
-If users will use SSL to access HedgeDoc. If `ssl` is `true` then this option is
-also `true` and cannot be set separately. Otherwise defaults to `false`. Ignored
-if `access.domain` is omitted.
+If users will use SSL to access HedgeDoc. Defaults to `false`. Ignored if `access.domain`
+is omitted.
 
 ### Option: `access.add_port`
 
@@ -160,6 +159,16 @@ USE AT YOUR OWN RISK!_
 
 These are case sensitive and any items set by specific configuration will take
 precedence (you can see those [here][run]).
+
+The only exception is `CMD_HSTS_ENABLE`. That is set to `false` before `env_vars`
+are processed specifically so you can choose to turn it back on if you want. Setting
+the HSTS header causes issues if you use the same domain for multiple applications
+and not all use SSL so it is disabled by default to prevent surprise errors.
+
+If you do enable HSTS HedgeDoc also sets `includeSubdomains` and `preload` by default.
+`preload` in particular can cause browsers to add your site to a public list that
+takes months to get off. Would recommend reading up on [preload][hsts-preload]
+before enabling it.
 
 #### Sub-option: `name`
 
@@ -236,9 +245,10 @@ SOFTWARE.
 [contributors]: https://github.com/mdegat01/addon-loki/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
-[forum]: https://community.home-assistant.io?u=CentralCommand
+[forum]: https://community.home-assistant.io/t/home-assistant-add-on-hedgedoc/296809?u=CentralCommand
 [hedgedoc]: https://hedgedoc.org/
 [hedgedoc-docs]: https://docs.hedgedoc.org/
+[hsts-preload]: https://hstspreload.org/
 [issue]: https://github.com/mdegat01/addon-loki/issues
 [mdegat01]: https://github.com/mdegat01
 [releases]: https://github.com/mdegat01/addon-loki/releases
