@@ -1,12 +1,14 @@
 {
   "name": "Hedgedoc",
-  "url": "https://hedgedoc.org/",
-  "version": "0.0.1",
+  "url": "https://github.com/mdegat01/addon-hedgedoc",
+  "version": "1.0.0",
   "slug": "hedgedoc",
   "arch": [
     "aarch64",
     "amd64",
-    "armv7"
+    "armv7",
+    "armhf",
+    "i386"
   ],
   "description": "Hedgedoc for Home Assistant",
   "services": [
@@ -15,6 +17,8 @@
   "map": [
     "ssl"
   ],
+  "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]",
+  "watchdog": "[PROTO:ssl]://[HOST]:3000/status",
   "ports": {
     "3000/tcp": 3000
   },
@@ -23,8 +27,12 @@
   },
   "options": {
     "ssl": false,
-    "session_secret": "changeme",
-    "session_days": 30,
+    "access": {
+      "domain": "homeassistant.local",
+      "add_port": true,
+      "session_secret": null,
+      "session_days": 30
+    },
     "log_level": "info",
     "env_vars": []
   },
@@ -32,13 +40,20 @@
     "ssl": "bool?",
     "certfile": "str?",
     "keyfile": "str?",
-    "session_secret": "password?",
-    "session_days": "int(1,)?",
-    "mysql_host": "str?",
-    "mysql_port": "port?",
-    "mysql_username": "str?",
-    "mysql_password": "password?",
-    "mysql_database": "str?",
+    "dhparamfile": "str?",
+    "access": {
+      "domain": "match([^\\/:]+)?",
+      "use_ssl": "bool?",
+      "add_port": "bool?",
+      "session_secret": "password?",
+      "session_days": "int(1,)?",
+      "allow_email_registration": "bool?"
+    },
+    "remote_mysql_host": "str?",
+    "remote_mysql_port": "port?",
+    "remote_mysql_username": "str?",
+    "remote_mysql_password": "password?",
+    "remote_mysql_database": "str?",
     "reset_database": "bool?",
     "env_vars": [
       {

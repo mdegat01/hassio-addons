@@ -9,10 +9,6 @@
 
 _The best platform to write and share markdown._
 
-[![Open your Home Assistant instance and show the add add-on repository dialog
-with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
-
 ## About
 
 [HedgeDoc][hedgedoc] (formerly known as CodiMD) is an open-source collaborative
@@ -64,7 +60,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [contributors]: https://github.com/mdegat01/addon-hedgedoc/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand

@@ -67,12 +67,53 @@ The private key file to use for SSL.
 
 **Note**: _The file MUST be stored in `/ssl/`, which is the default_
 
-### Option: `session_secret`
+### Option: `dhparamfile`
+
+The Diffie-Hellman Key file to use for SSL.
+
+HedgeDoc requires this be provided in addition to the cert and key files to enable
+SSL. This [stack exchange post][stackexchange-dhparam] does a good job explaining
+what this file is. Execute this command to make one:
+
+```bash
+openssl dhparam -out dhparam.pem 2048
+```
+
+**Note**: _The file MUST be stored in `/ssl/`, which is the default_
+
+### Option: `access.domain`
+
+The domain users will access HedgeDoc at. While not required, providing this is
+encouraged. If omitted you will see several warnings informing you that some features
+will not work. Check the [HedgeDoc docs][hedgedoc-docs] for more info.
+
+### Option: `access.use_ssl`
+
+If users will use SSL to access HedgeDoc. If `ssl` is `true` then this option is
+also `true` and cannot be set separately. Otherwise defaults to `false`. Ignored
+if `access.domain` is omitted.
+
+### Option: `access.add_port`
+
+If users will include the port in the URL when accessing HedgeDoc. Defaults to
+`false`. Ignored if `access.domain` is omitted.
+
+**Note**: _If `true`, HedgeDoc will expect users to access it at port 3000. It
+does not support port remapping so if you map port 3000 to a different port
+on the host it won't work properly. Your options here are:_
+
+- _(Preferred) Don't expose the port, set `access.add_port` to `false` and use
+  a reverse proxy (ex. [Nginx Proxy Manager][addon-npm])._
+- _Expose port 3000 as port 3000 on the host, set `access.add_port` to `true`._
+- _Expose port 3000 as port 443 (ssl) or 80 (non-ssl), set `access.add_port` to
+  `false`._
+
+### Option: `access.session_secret`
 
 Used to sign session cookies. If not set a value will be randomly generated each
 startup which will log out all users.
 
-### Option: `session_days`
+### Option: `access.session_days`
 
 Number of days before users have to log in again.
 
@@ -191,13 +232,16 @@ SOFTWARE.
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmdegat01%2Fhassio-addons
 [addon-mariadb]: https://github.com/home-assistant/addons/tree/master/mariadb
+[addon-npm]: https://github.com/hassio-addons/addon-nginx-proxy-manager
 [contributors]: https://github.com/mdegat01/addon-loki/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
 [forum]: https://community.home-assistant.io?u=CentralCommand
 [hedgedoc]: https://hedgedoc.org/
+[hedgedoc-docs]: https://docs.hedgedoc.org/
 [issue]: https://github.com/mdegat01/addon-loki/issues
 [mdegat01]: https://github.com/mdegat01
 [releases]: https://github.com/mdegat01/addon-loki/releases
-[run]: https://github.com/mdegat01/addon-hedgedoc
+[run]: https://github.com/mdegat01/addon-hedgedoc/blob/main/hedgedoc/rootfs/etc/services.d/hedgedoc/run
 [semver]: http://semver.org/spec/v2.0.0
+[stackexchange-dhparam]: https://security.stackexchange.com/questions/94390/whats-the-purpose-of-dh-parameters/94397#94397
