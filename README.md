@@ -128,9 +128,9 @@ SOFTWARE.
 [add-addon-hedgedoc]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_hedgedoc
 [hedgedoc-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [hedgedoc-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[hedgedoc-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[hedgedoc-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [hedgedoc-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[hedgedoc-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
+[hedgedoc-i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [addon-loki]: https://github.com/mdegat01/addon-loki/tree/v1.4.1
 [addon-doc-loki]: https://github.com/mdegat01/addon-loki/blob/v1.4.1/README.md
 [loki-issue]: https://github.com/mdegat01/addon-loki/issues
