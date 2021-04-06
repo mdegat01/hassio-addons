@@ -1,14 +1,15 @@
 ## What’s changed
-## ✨ New features
+## 🧰 Maintenance
 
-- Add armhf support @mdegat01 (#25)
+- Use pre-built promtail binary @mdegat01 (#30)
+- Curl yq binary in dockerfile for easier updating @mdegat01 (#31)
+
+## 📚 Documentation
+
+- Fix forum link in docs @mdegat01 (#27)
 
 ## ⬆️ Dependency updates
 
-- Bump ludeeus/action-shellcheck from 1.0.0 to 1.1.0 @dependabot (#23)
-- Small formatting fix and libsystemd-dev update @mdegat01 (#24)
-
-## 🧰 Maintenance
-
-- Small formatting fix and libsystemd-dev update @mdegat01 (#24)
-- Use apk --print-arch instead of arg @mdegat01 (#26)
+- Update YQ to `4.6.3` @mdegat01 (#28)
+- Update to Promtail 2.2.1 @mdegat01 (#30)
+- Update addon debian base to `4.1.4` @mdegat01 (#32)
