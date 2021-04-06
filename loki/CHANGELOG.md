@@ -1,10 +1,9 @@
 ## What’s changed
-## ✨ New features
+## 📚 Documentation
 
-- Add armhf support @mdegat01 (#28)
+- Fix forum link in docs @mdegat01 (#30)
 
-## 🧰 Maintenance
+## ⬆️ Dependency updates
 
-- Small formatting fix @mdegat01 (#26)
-- Refactor permissions setup @mdegat01 (#27)
-- Use build image and copy for loki @mdegat01 (#29)
+- Upgrade add-on base image to `9.1.6` @mdegat01 (#31)
+- Update Loki to `2.2.1` @mdegat01 (#32)
