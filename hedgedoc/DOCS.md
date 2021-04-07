@@ -116,6 +116,12 @@ startup which will log out all users.
 
 Number of days before users have to log in again.
 
+### Option: `access.allow_email_registration`
+
+Enable/disable the ability to sign up with an email. Defaults to `true`. Set to
+`false` if you want to limit who can login to a fixed set of users. Or if you want
+to only allow an [alternate login method][hedgedoc-docs-login].
+
 ### Option: `remote_mysql_host`
 
 If using an external database, the hostname/address for the MySQL/MariaDB database.
@@ -248,6 +254,7 @@ SOFTWARE.
 [forum]: https://community.home-assistant.io/t/home-assistant-add-on-hedgedoc/296809?u=CentralCommand
 [hedgedoc]: https://hedgedoc.org/
 [hedgedoc-docs]: https://docs.hedgedoc.org/
+[hedgedoc-docs-login]: https://docs.hedgedoc.org/configuration/#login-methods
 [hsts-preload]: https://hstspreload.org/
 [issue]: https://github.com/mdegat01/addon-loki/issues
 [mdegat01]: https://github.com/mdegat01
