@@ -12,8 +12,7 @@ If you encounter an issue please report it [here](https://github.com/mdegat01/ad
 
 ## 🧰 Maintenance
 
-- Add support for beta environment @mdegat01 (#37)
-- Deploys to stable also go to beta @mdegat01 (#44)
+- Add support for beta environment @mdegat01 (#37, #44, #45)
 
 ## 📚 Documentation
 
@@ -24,5 +23,3 @@ If you encounter an issue please report it [here](https://github.com/mdegat01/ad
 - Bump docker/build-push-action from v2.3.0 to v2.4.0 @dependabot (#34)
 - Bump docker/setup-qemu-action from v1.0.1 to v1.0.2 @dependabot (#36)
 - Bump docker/setup-buildx-action from v1.1.1 to v1.1.2 @dependabot (#35)
-
-
