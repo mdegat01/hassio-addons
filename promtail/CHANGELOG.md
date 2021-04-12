@@ -17,8 +17,7 @@ If you encounter an issue please report it [here](https://github.com/mdegat01/ad
 
 ## 🧰 Maintenance
 
-- Enable publishing to beta repo @mdegat01 (#42)
-- Deploys to stable also go to beta @mdegat01 (#55)
+- Enable publishing to beta repo @mdegat01 (#42, #55, #56)
 
 ## 📚 Documentation
 
