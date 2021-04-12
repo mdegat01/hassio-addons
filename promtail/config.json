@@ -1,7 +1,7 @@
 {
   "name": "Promtail",
   "url": "https://github.com/mdegat01/addon-promtail",
-  "version": "1.3.1",
+  "version": "1.5.0",
   "slug": "promtail",
   "arch": [
     "aarch64",
@@ -41,7 +41,7 @@
     "additional_pipeline_stages": "str?",
     "additional_scrape_configs": "str?",
     "skip_default_scrape_config": "bool?",
-    "log_level": "list(debug|info|warning|error)?"
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
   },
   "image": "ghcr.io/mdegat01/promtail/{arch}"
 }
