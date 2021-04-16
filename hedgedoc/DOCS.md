@@ -67,20 +67,6 @@ The private key file to use for SSL.
 
 **Note**: _The file MUST be stored in `/ssl/`, which is the default_
 
-### Option: `dhparamfile`
-
-The Diffie-Hellman Key file to use for SSL.
-
-HedgeDoc requires this be provided in addition to the cert and key files to enable
-SSL. This [stack exchange post][stackexchange-dhparam] does a good job explaining
-what this file is. Execute this command to make one:
-
-```bash
-openssl dhparam -out dhparam.pem 2048
-```
-
-**Note**: _The file MUST be stored in `/ssl/`, which is the default_
-
 ### Option: `access.domain`
 
 The domain users will access HedgeDoc at. While not required, providing this is
