@@ -1,7 +1,7 @@
 {
-  "name": "Hedgedoc",
+  "name": "HedgeDoc",
   "url": "https://github.com/mdegat01/addon-hedgedoc",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "slug": "hedgedoc",
   "arch": [
     "aarch64",
@@ -10,7 +10,7 @@
     "armhf",
     "i386"
   ],
-  "description": "Hedgedoc for Home Assistant",
+  "description": "HedgeDoc for Home Assistant",
   "services": [
     "mysql:want"
   ],

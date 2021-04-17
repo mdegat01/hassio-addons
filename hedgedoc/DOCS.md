@@ -7,7 +7,7 @@ First add the repository to the add-on store (`https://github.com/mdegat01/hassi
 [![Open your Home Assistant instance and show the add add-on repository dialog
 with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
 
-Then find Loki in the store and click install:
+Then find HedgeDoc in the store and click install:
 
 [![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
 
@@ -234,7 +234,7 @@ SOFTWARE.
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmdegat01%2Fhassio-addons
 [addon-mariadb]: https://github.com/home-assistant/addons/tree/master/mariadb
 [addon-npm]: https://github.com/hassio-addons/addon-nginx-proxy-manager
-[contributors]: https://github.com/mdegat01/addon-loki/graphs/contributors
+[contributors]: https://github.com/mdegat01/addon-hedgedoc/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
 [forum]: https://community.home-assistant.io/t/home-assistant-add-on-hedgedoc/296809?u=CentralCommand
@@ -242,9 +242,8 @@ SOFTWARE.
 [hedgedoc-docs]: https://docs.hedgedoc.org/
 [hedgedoc-docs-login]: https://docs.hedgedoc.org/configuration/#login-methods
 [hsts-preload]: https://hstspreload.org/
-[issue]: https://github.com/mdegat01/addon-loki/issues
+[issue]: https://github.com/mdegat01/addon-hedgedoc/issues
 [mdegat01]: https://github.com/mdegat01
-[releases]: https://github.com/mdegat01/addon-loki/releases
+[releases]: https://github.com/mdegat01/addon-hedgedoc/releases
 [run]: https://github.com/mdegat01/addon-hedgedoc/blob/main/hedgedoc/rootfs/etc/services.d/hedgedoc/run
 [semver]: http://semver.org/spec/v2.0.0
-[stackexchange-dhparam]: https://security.stackexchange.com/questions/94390/whats-the-purpose-of-dh-parameters/94397#94397
