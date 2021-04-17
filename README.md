@@ -21,7 +21,7 @@ https://github.com/mdegat01/hassio-addons
 
 ## Add-ons provided by this repository
 
-### &#10003; [Hedgedoc][addon-hedgedoc]f
+### &#10003; [HedgeDoc][addon-hedgedoc]f
 
 ![Latest Version][hedgedoc-version-shield]
 ![Supports armhf Architecture][hedgedoc-armhf-shield]
@@ -30,11 +30,11 @@ https://github.com/mdegat01/hassio-addons
 ![Supports amd64 Architecture][hedgedoc-amd64-shield]
 ![Supports i386 Architecture][hedgedoc-i386-shield]
 
-Hedgedoc for Home Assistant
+HedgeDoc for Home Assistant
 
 [![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-hedgedoc]
 
-[:books: Hedgedoc add-on documentation][addon-doc-hedgedoc]
+[:books: HedgeDoc add-on documentation][addon-doc-hedgedoc]
 
 ### &#10003; [Loki][addon-loki]f
 
@@ -91,7 +91,7 @@ You could also open an issue here on GitHub. Note, I use a separate
 GitHub repository for each add-on. Please ensure you are creating the issue
 on the correct GitHub repository matching the add-on.
 
-- [Open an issue for the add-on: Hedgedoc][hedgedoc-issue]
+- [Open an issue for the add-on: HedgeDoc][hedgedoc-issue]
 - [Open an issue for the add-on: Loki][loki-issue]
 - [Open an issue for the add-on: Promtail][promtail-issue]
 
