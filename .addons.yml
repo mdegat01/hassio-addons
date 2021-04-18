@@ -13,3 +13,7 @@ addons:
     repository: mdegat01/addon-hedgedoc
     target: hedgedoc
     image: ghcr.io/mdegat01/hedgedoc/{arch}
+  sharry:
+    repository: mdegat01/addon-sharry
+    target: sharry
+    image: ghcr.io/mdegat01/sharry/{arch}
