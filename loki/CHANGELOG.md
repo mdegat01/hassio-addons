@@ -1,12 +1,15 @@
 ## What’s changed
 ## 🐛 Bug fixes
 
-- Temporarily remove custom apparmor profile @mdegat01 (#49)
+- Adding back apparmor profile with amd64 fixes @mdegat01 (#50)
 
 ## 🧰 Maintenance
 
-- Devcontainer dev @mdegat01 (#46)
+- Use the `do_usr` variable @mdegat01 (#51)
 
 ## ⬆️ Dependency updates
 
-- Bump actions/cache from v2.1.4 to v2.1.5 @dependabot (#48)
+- Update curl from `7.74.0-r1` to `7.76.1-r0` @mdegat01 (#52)
+- Bump brpaz/hadolint-action from v1.3.1 to v1.4.0 @dependabot (#53)
+- Bump build image to `alpine:3.13.5` @mdegat01 (#54)
+- Bump addons base to `9.1.7` @mdegat01 (#55)
