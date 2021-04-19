@@ -2,7 +2,7 @@
 
 ![Project Stage][project-stage-shield]
 ![Maintenance][maintenance-shield]
-[![License][license-shield]](LICENSE.md)
+[![License][license-shield]](LICENSE)
 
 A hopefully useful collection of HA add-ons made by mdegat01.
 
