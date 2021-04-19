@@ -1,0 +1,56 @@
+{
+  "name": "Sharry",
+  "url": "https://github.com/mdegat01/addon-sharry",
+  "version": "1.0.0",
+  "slug": "sharry",
+  "arch": [
+    "aarch64",
+    "amd64"
+  ],
+  "description": "Sharry for Home Assistant",
+  "services": [
+    "mysql:want"
+  ],
+  "auth_api": true,
+  "webui": "http://[HOST]:[PORT:9090]",
+  "watchdog": "http://[HOST]:9090/api/v2/open/info/version",
+  "ports": {
+    "9090/tcp": 9090
+  },
+  "ports_description": {
+    "9090/tcp": "HTTP listen port"
+  },
+  "options": {
+    "domain": "homeassistant.local",
+    "use_ssl": false,
+    "default_language": "us",
+    "share_max_size_gb": 1.5,
+    "share_max_valid_days": 365,
+    "server_secret": null,
+    "log_level": "info",
+    "conf_overrides": []
+  },
+  "schema": {
+    "domain": "match([^\\/:]+)",
+    "use_ssl": "bool?",
+    "default_language": "match([A-Za-z]{2})?",
+    "share_max_size_gb": "float(0.01,)?",
+    "share_max_valid_days": "int(1,)?",
+    "server_secret": "password",
+    "remote_db_type": "list(mariadb|postgres)?",
+    "remote_db_host": "str?",
+    "remote_db_port": "port?",
+    "remote_db_username": "str?",
+    "remote_db_password": "password?",
+    "remote_db_database": "str?",
+    "reset_database": "bool?",
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
+    "conf_overrides": [
+      {
+        "property": "match(^sharry[.]restserver[.][-.a-z0-9]+)",
+        "value": "str"
+      }
+    ]
+  },
+  "image": "ghcr.io/mdegat01/sharry/{arch}"
+}

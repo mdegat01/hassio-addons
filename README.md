@@ -66,6 +66,21 @@ Promtail for Home Assistant
 
 [:books: Promtail add-on documentation][addon-doc-promtail]
 
+### &#10003; [Sharry][addon-sharry]f
+
+![Latest Version][sharry-version-shield]
+![Supports armhf Architecture][sharry-armhf-shield]
+![Supports armv7 Architecture][sharry-armv7-shield]
+![Supports aarch64 Architecture][sharry-aarch64-shield]
+![Supports amd64 Architecture][sharry-amd64-shield]
+![Supports i386 Architecture][sharry-i386-shield]
+
+Sharry for Home Assistant
+
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-sharry]
+
+[:books: Sharry add-on documentation][addon-doc-sharry]
+
 ## Releases
 
 Releases are based on [Semantic Versioning][semver], and use the format
@@ -94,6 +109,7 @@ on the correct GitHub repository matching the add-on.
 - [Open an issue for the add-on: HedgeDoc][hedgedoc-issue]
 - [Open an issue for the add-on: Loki][loki-issue]
 - [Open an issue for the add-on: Promtail][promtail-issue]
+- [Open an issue for the add-on: Sharry][sharry-issue]
 
 For a general repository issue or add-on ideas [open an issue here][issue]
 
@@ -151,6 +167,16 @@ SOFTWARE.
 [promtail-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [promtail-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [promtail-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
+[addon-sharry]: https://github.com/mdegat01/addon-sharry/tree/v1.0.0
+[addon-doc-sharry]: https://github.com/mdegat01/addon-sharry/blob/v1.0.0/README.md
+[sharry-issue]: https://github.com/mdegat01/addon-sharry/issues
+[sharry-version-shield]: https://img.shields.io/badge/version-v1.0.0-blue.svg
+[add-addon-sharry]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_sharry
+[sharry-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[sharry-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[sharry-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
+[sharry-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
+[sharry-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/mdegat01/hassio-addons
