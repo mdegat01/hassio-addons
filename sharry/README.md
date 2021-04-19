@@ -2,7 +2,7 @@
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
-[![License][license-shield]](LICENSE.md)
+[![License][license-shield]][license]
 
 ![Project Maintenance][maintenance-shield]
 [![Community Forum][forum-shield]][forum]
@@ -69,9 +69,10 @@ SOFTWARE.
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://community.home-assistant.io?u=CentralCommand
+[forum]: https://community.home-assistant.io/t/home-assistant-add-on-sharry/300860?u=CentralCommand
 [mdegat01]: https://github.com/mdegat01
 [issue]: https://github.com/mdegat01/addon-sharry/issues
+[license]: https://github.com/mdegat01/addon-sharry/blob/main/LICENSE
 [license-shield]: https://img.shields.io/github/license/mdegat01/addon-sharry.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg

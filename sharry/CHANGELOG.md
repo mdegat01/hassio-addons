@@ -15,7 +15,9 @@ Seems like its ready to go so enjoy Sharry for Home Assistant!
 
 ## 📚 Documentation
 
-Small tweaks to README to better describe alias feature
+- Small tweaks to README to better describe alias feature
+- Fix license link in readme @mdegat01 (#9)
+- Add link to the forum launch post @mdegat01 (#10)
 
 ## 🧰 Maintenance
 
@@ -24,5 +26,3 @@ Small tweaks to README to better describe alias feature
 ## ⬆️ Dependency updates
 
 - Bump brpaz/hadolint-action from v1.3.1 to v1.4.0 @dependabot (#2)
-
-
