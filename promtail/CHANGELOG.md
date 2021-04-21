@@ -1,15 +1,13 @@
 ## What’s changed
 ## 🐛 Bug fixes
 
-- Adding back apparmor profile with `amd64` fixes @mdegat01 (#61)
+- aa - Remove references to run and etc globals @mdegat01 (#68)
+- aa - Improve network access controls @mdegat01 (#70)
 
 ## 🧰 Maintenance
 
-- Use the `do_usr` variable @mdegat01 (#62)
+- Add workflow to enforce specific labels on PRs @mdegat01 (#69)
 
-## ⬆️ Dependency updates
+## 📚 Documentation
 
-- Update curl from `7.74.0-r1` to `7.76.1-r0` @mdegat01 (#63)
-- Bump dependency `yq` from `4.6.3` to `4.7.0` @mdegat01 (#64)
-- Bump brpaz/hadolint-action from v1.3.1 to v1.4.0 @dependabot (#65)
-- Bump build image to `alpine:3.13.5` @mdegat01 (#66)
+- Fix license link in readme @mdegat01 (#67)
