@@ -2,15 +2,15 @@ include <tunables/global>
 
 # Docker overlay
 @{fs_root}=/ /docker/overlay2/*/diff/
-@{do_etc_rw}=@{fs_root}/@{etc_rw}/
-@{do_etc_ro}=@{fs_root}/@{etc_ro}/
+@{do_etc}=@{fs_root}/etc/
 @{do_opt}=@{fs_root}/opt/
-@{do_run}=@{fs_root}/@{run}/
+@{do_run}=@{fs_root}/{run,var/run}/
 @{do_usr}=@{fs_root}/usr/
 @{do_var}=@{fs_root}/var/
 
 profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   include <abstractions/base>
+  include <abstractions/bash>
 
   # Send signals to children
   signal (send) set=(kill,term,int,hup,cont),
@@ -24,57 +24,56 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   capability setuid,
   capability setgid,
 
+  # Network access
+  network tcp,
+  network udp,
+
   # S6-Overlay
-  /init                                   rix,
-  /bin/**                                 rix,
-  /usr/bin/**                             rix,
-  @{do_etc_ro}/s6/**                      rix,
-  @{do_etc_rw}/services.d/{,**}           rwix,
-  @{do_etc_rw}/cont-init.d/{,**}          rwix,
-  @{do_etc_rw}/cont-finish.d/{,**}        rwix,
-  @{do_etc_rw}/fix-attrs.d/{,**}          rw,
-  @{do_run}/s6/**                         rwix,
-  @{do_run}/**                            rwk,
-  /dev/tty                                rw,
-  @{do_usr}/lib/locale/{,**}              r,
-  @{do_etc_ro}/group                      r,
-  @{do_etc_ro}/passwd                     r,
-  @{do_etc_ro}/hosts                      r,
-  @{do_etc_ro}/resolv.conf                r,
-  @{do_etc_ro}/ssl/openssl.cnf            r,
-  /dev/null                               k,
+  /init                                rix,
+  /bin/**                              rix,
+  /usr/bin/**                          rix,
+  @{do_etc}/s6/**                      rix,
+  @{do_etc}/services.d/{,**}           rwix,
+  @{do_etc}/cont-init.d/{,**}          rwix,
+  @{do_etc}/cont-finish.d/{,**}        rwix,
+  @{do_etc}/fix-attrs.d/{,**}          rw,
+  @{do_run}/s6/**                      rwix,
+  @{do_run}/**                         rwk,
+  /dev/tty                             rw,
+  @{do_usr}/lib/locale/{,**}           r,
+  @{do_etc}/group                      r,
+  @{do_etc}/passwd                     r,
+  @{do_etc}/hosts                      r,
+  @{do_etc}/resolv.conf                r,
+  @{do_etc}/ssl/openssl.cnf            r,
+  /dev/null                            k,
 
   # Bashio
-  /usr/lib/bashio/**                      ix,
-  /tmp/**                                 rw,
+  /usr/lib/bashio/**                   ix,
+  /tmp/**                              rw,
 
   # Options.json & addon data
-  /data                                   r,
-  /data/**                                rw,
+  /data                                r,
+  /data/**                             rw,
 
   # Files needed for setup
-  @{do_etc_rw}/hedgedoc/{,**}             rw,
+  @{do_etc}/hedgedoc/{,**}             rw,
   @{do_opt}/hedgedoc/{.sequelizerc,config.json}   w,
-  @{do_opt}/hedgedoc/public/**            w,
-  @{do_etc_ro}/services                   r,
-  @{do_etc_ro}/my.cnf                     r,
-  @{do_etc_ro}/my.cnf.d/{,**}             r,
-  @{do_usr}/share/mariadb/**              r,
-  @{do_opt}/hedgedoc/{,**}                r,
-  /ssl/{,**}                              r,
-  link /opt/hedgedoc/config.json -> @{etc_rw}/hedgedoc/config.json,
+  @{do_opt}/hedgedoc/public/**         w,
+  @{do_etc}/services                   r,
+  @{do_etc}/my.cnf                     r,
+  @{do_etc}/my.cnf.d/{,**}             r,
+  @{do_usr}/share/mariadb/**           r,
+  @{do_opt}/hedgedoc/{,**}             r,
+  /ssl/{,**}                           r,
+  link /opt/hedgedoc/config.json -> /etc/hedgedoc/config.json,
   link /opt/hedgedoc/public/** -> /data/hedgedoc/**,
 
   # Programs
-  /usr/bin/node                           cx,
-  /usr/bin/openssl                        Cx,
-  /usr/bin/mysql                          Cx,
+  /usr/bin/node                        cx,
+  /usr/bin/openssl                     Cx,
+  /usr/bin/mysql                       Cx,
   /opt/hedgedoc/node_modules/sequelize-cli/lib/sequelize  Cx -> /usr/bin/node,
-
-  # Shell access
-  owner @{HOME}/.*                        rw,
-  @{do_etc_ro}/inputrc                    r,
-  @{do_etc_ro}/terminfo/x/xterm-256color  r,
 
   profile /usr/bin/node flags=(attach_disconnected,mediate_deleted) {
     include <abstractions/base>
@@ -83,31 +82,32 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
     signal receive,
     signal peer=@{profile_name},
 
-    # Send & receive tcp traffic
+    # Network access
     network tcp,
+    network udp,
 
     # Addon data
-    /data/**                              r,
-    /data/hedgedoc/**                     rwk,
+    /data/**                           r,
+    /data/hedgedoc/**                  rwk,
 
     # Config
-    @{do_etc_ro}/hedgedoc/config.json     r,
-    @{do_opt}/hedgedoc/**                 r,
-    /ssl/**                               r,
+    @{do_etc}/hedgedoc/config.json     r,
+    @{do_opt}/hedgedoc/**              r,
+    /ssl/**                            r,
 
     # Executables
-    /opt/hedgedoc/bin/**                  rix,
-    /usr/bin/node                         rix,
+    /opt/hedgedoc/bin/**               rix,
+    /usr/bin/node                      rix,
 
     # Runtime usage
-    /tmp/hedgedoc-**                      rw,
-    /bin/busybox                          rm,
-    @{do_etc_ro}/hosts                    r,
-    @{do_etc_ro}/resolv.conf              r,
-    @{do_etc_ro}/ssl/openssl.cnf          r,
-    @{do_usr}/share/ca-certificates/**    r,
-    @{PROC}/*/stat                        r,
-    @{PROC}/loadavg                       r,
+    /tmp/hedgedoc-**                   rw,
+    /bin/busybox                       rm,
+    @{do_etc}/hosts                    r,
+    @{do_etc}/resolv.conf              r,
+    @{do_etc}/ssl/openssl.cnf          r,
+    @{do_usr}/share/ca-certificates/** r,
+    @{PROC}/*/stat                     r,
+    @{PROC}/loadavg                    r,
     @{sys}/fs/cgroup/memory/memory.limit_in_bytes   r,
     /opt/hedgedoc/node_modules/*/prebuilds/**.node  rm,
   }
@@ -115,9 +115,9 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   profile /usr/bin/openssl flags=(attach_disconnected,mediate_deleted) {
     include <abstractions/base>
 
-    /data/dhparams.pem                    w,
-    /usr/bin/openssl                      rm,
-    @{do_etc_ro}/ssl/openssl.cnf          r,
+    /data/dhparams.pem                 w,
+    /usr/bin/openssl                   rm,
+    @{do_etc}/ssl/openssl.cnf          r,
   }
 
   profile /usr/bin/mysql flags=(attach_disconnected,mediate_deleted) {

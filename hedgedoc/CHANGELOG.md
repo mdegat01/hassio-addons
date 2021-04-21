@@ -1,12 +1,15 @@
 ## What’s changed
 ## 🐛 Bug fixes
 
-- AppArmor - add RO access to ca-certificates folder, required for oauth login options @mdegat01 (#41)
+- aa - Remove references to run and etc globals @mdegat01 (#45, #46)
+- aa - Improve network access controls @mdegat01 (#48)
 
-## 🚀 Enhancements
+## 🧰 Maintenance
 
-- Add some debug logging for seeing final config @mdegat01 (#40, #42 )
+- Add workflow to enforce specific labels on PRs @mdegat01 (#47)
 
 ## 📚 Documentation
 
-- Remove Loki references in docs @mdegat01 (#39)
+- Missed a closing underscore in docs @mdegat01 (#43)
+- Fix license link in readme @mdegat01 (#44)
+

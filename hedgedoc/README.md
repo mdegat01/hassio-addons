@@ -2,7 +2,7 @@
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
-[![License][license-shield]](LICENSE.md)
+[![License][license-shield]][license]
 
 ![Project Maintenance][maintenance-shield]
 [![Community Forum][forum-shield]][forum]
@@ -69,6 +69,7 @@ SOFTWARE.
 [hedgedoc]: https://hedgedoc.org/
 [mdegat01]: https://github.com/mdegat01
 [issue]: https://github.com/mdegat01/addon-hedgedoc/issues
+[license]: https://github.com/mdegat01/addon-hedgedoc/blob/main/LICENSE
 [license-shield]: https://img.shields.io/github/license/mdegat01/addon-hedgedoc.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
 [releases-shield]: https://img.shields.io/github/release/mdegat01/addon-hedgedoc.svg

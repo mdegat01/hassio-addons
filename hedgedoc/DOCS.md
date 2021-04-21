@@ -49,7 +49,7 @@ log_level: info
 env_vars: []
 ```
 
-**Note**: \_This is just an example, don't copy and paste it! Create your own!
+**Note**: _This is just an example, don't copy and paste it! Create your own!_
 
 ### Option: `ssl`
 
