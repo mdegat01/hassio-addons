@@ -1,0 +1,111 @@
+include <tunables/global>
+
+# Docker overlay
+@{fs_root}=/ /docker/overlay2/*/diff/
+@{do_etc}=@{fs_root}/etc/
+@{do_opt}=@{fs_root}/opt/
+@{do_run}=@{fs_root}/{run,var/run}/
+@{do_usr}=@{fs_root}/usr/
+@{do_var}=@{fs_root}/var/
+
+profile sharry flags=(attach_disconnected,mediate_deleted) {
+  include <abstractions/base>
+  include <abstractions/bash>
+
+  # Send signals to child services
+  signal (send) peer=@{profile_name}//*,
+
+  # Capabilities to run service as non-root
+  capability kill,
+  capability dac_override,
+  capability chown,
+  capability fowner,
+  capability fsetid,
+  capability setuid,
+  capability setgid,
+
+  # Network access
+  network tcp,
+  network udp,
+
+  # S6-Overlay
+  /init                                               rix,
+  /bin/**                                             rix,
+  /usr/bin/**                                         rix,
+  @{do_etc}/s6/**                                     rix,
+  @{do_etc}/services.d/{,**}                          rwix,
+  @{do_etc}/cont-{init,finish}.d/{,**}                rwix,
+  @{do_etc}/fix-attrs.d/{,**}                         rw,
+  @{do_run}/s6/**                                     rwix,
+  @{do_run}/**                                        rwk,
+  /dev/tty                                            rw,
+  @{do_usr}/lib/locale/{,**}                          r,
+  @{do_etc}/ssl/openssl.cnf                           r,
+  @{do_etc}/{group,hosts,passwd,resolv.conf}          r,
+  /dev/null                                           k,
+
+  # Bashio
+  /usr/lib/bashio/**                                  ix,
+  /tmp/**                                             rw,
+
+  # MariaDB
+  @{do_etc}/{services,my.cnf}                         r,
+  @{do_etc}/my.cnf.d/{,**}                            r,
+  @{do_usr}/share/mariadb/**                          r,
+  /usr/bin/mysql                                      Cx,
+
+  # Options.json & addon data
+  /data                                               r,
+  /data/**                                            rw,
+
+  # Files needed for setup
+  @{do_etc}/sharry/{,**}                              rw,
+  @{do_opt}/sharry/{,**}                              r,
+
+  # Programs
+  /opt/sharry/bin/sharry-restserver                   rix,
+  /usr/lib/jvm/java-[1-9][0-9]-openjdk/bin/java       rmcx -> sharry-java,
+
+  profile sharry-java flags=(attach_disconnected,mediate_deleted) {
+    include <abstractions/base>
+
+    # Receive signals from s6
+    signal (receive) peer=*_sharry,
+
+    # Network access
+    network tcp,
+    network udp,
+
+    # Addon data
+    /data/**                                          r,
+    /data/sharry/**                                   rwk,
+
+    # Config
+    @{do_etc}/sharry/*                                r,
+    @{do_opt}/sharry/**                               r,
+
+    # Self
+    /usr/lib/jvm/java-[1-9][0-9]-openjdk/bin/java     rmix,
+
+    # Authenticate with HA
+    /usr/bin/curl                                     rix,
+    @{do_etc}/ssl/openssl.cnf                         r,
+    @{do_etc}/{hosts,passwd,resolv.conf}              r,
+
+    # Runtime usage
+    owner /tmp/**                                     rw,
+    @{PROC}/[1-9]*/coredump_filter                    rw,
+    @{do_etc}/ssl/certs/java/**                       r,
+    @{do_run}/s6/services/sharry/                     r,
+    @{PROC}/[1-9]*/net/{if_inet6,ipv6_route}          r,
+    @{PROC}/[1-9]*/{cgroup,fd/,mountinfo,stat}        r,
+    @{sys}/fs/cgroup/cpu,cpuacct/cpu.{shares,cfs_period_us,cfs_quota_us}  r,
+    @{sys}/fs/cgroup/memory/memory.{stat,limit_in_bytes,use_hierarchy}    r,
+  }
+
+
+  profile /usr/bin/mysql flags=(attach_disconnected,mediate_deleted) {
+    include <abstractions/base>
+    include <abstractions/mysql>
+  }
+}
