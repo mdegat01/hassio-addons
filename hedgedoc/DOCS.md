@@ -43,10 +43,20 @@ Example add-on configuration:
 ssl: true
 certfile: fullchain.pem
 keyfile: privkey.pem
-session_secret: changeme
-session_days: 30
+access:
+  domain: homeassistant.local
+  add_port: true
+  session_secret: changeme
+  session_days: 30
+csp_directives:
+  - name: frameAncestors
+    value: "'self'"
+env_vars:
+  - name: CMD_HSTS_ENABLE
+    value: "true"
+  - name: CMD_HSTS_PRELOAD
+    value: "false"
 log_level: info
-env_vars: []
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
@@ -107,6 +117,13 @@ Number of days before users have to log in again.
 Enable/disable the ability to sign up with an email. Defaults to `true`. Set to
 `false` if you want to limit who can login to a fixed set of users. Or if you want
 to only allow an [alternate login method][hedgedoc-docs-login].
+
+### Option: `csp_directives`
+
+Set directives for [helmet][helmet-docs] to use to configure the content security
+policy. HedgeDoc itself also sets a number of defaults here so your directives
+will be merged with theirs. See [their documentation][hedgedoc-docs-web-sec] for
+more information.
 
 ### Option: `remote_mysql_host`
 
@@ -241,6 +258,8 @@ SOFTWARE.
 [hedgedoc]: https://hedgedoc.org/
 [hedgedoc-docs]: https://docs.hedgedoc.org/
 [hedgedoc-docs-login]: https://docs.hedgedoc.org/configuration/#login-methods
+[hedgedoc-docs-web-sec]: https://docs.hedgedoc.org/configuration/#web-security-aspects
+[helmet-docs]: https://helmetjs.github.io/
 [hsts-preload]: https://hstspreload.org/
 [issue]: https://github.com/mdegat01/addon-hedgedoc/issues
 [mdegat01]: https://github.com/mdegat01

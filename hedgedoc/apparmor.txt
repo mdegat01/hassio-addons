@@ -12,10 +12,10 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   include <abstractions/base>
   include <abstractions/bash>
 
-  # Send signals to children
-  signal (send) set=(kill,term,int,hup,cont),
+  # Send signals to child services
+  signal (send) peer=@{profile_name}//*,
 
-  # Capabilities
+  # Capabilities to run service as non-root
   capability kill,
   capability dac_override,
   capability chown,
@@ -29,85 +29,80 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   network udp,
 
   # S6-Overlay
-  /init                                rix,
-  /bin/**                              rix,
-  /usr/bin/**                          rix,
-  @{do_etc}/s6/**                      rix,
-  @{do_etc}/services.d/{,**}           rwix,
-  @{do_etc}/cont-init.d/{,**}          rwix,
-  @{do_etc}/cont-finish.d/{,**}        rwix,
-  @{do_etc}/fix-attrs.d/{,**}          rw,
-  @{do_run}/s6/**                      rwix,
-  @{do_run}/**                         rwk,
-  /dev/tty                             rw,
-  @{do_usr}/lib/locale/{,**}           r,
-  @{do_etc}/group                      r,
-  @{do_etc}/passwd                     r,
-  @{do_etc}/hosts                      r,
-  @{do_etc}/resolv.conf                r,
-  @{do_etc}/ssl/openssl.cnf            r,
-  /dev/null                            k,
+  /init                                           rix,
+  /bin/**                                         rix,
+  /usr/bin/**                                     rix,
+  @{do_etc}/s6/**                                 rix,
+  @{do_etc}/services.d/{,**}                      rwix,
+  @{do_etc}/cont-{init,finish}.d/{,**}            rwix,
+  @{do_etc}/fix-attrs.d/{,**}                     rw,
+  @{do_run}/s6/**                                 rwix,
+  @{do_run}/**                                    rwk,
+  /dev/tty                                        rw,
+  @{do_usr}/lib/locale/{,**}                      r,
+  @{do_etc}/ssl/openssl.cnf                       r,
+  @{do_etc}/{group,hosts,passwd,resolv.conf}      r,
+  /dev/null                                       k,
 
   # Bashio
-  /usr/lib/bashio/**                   ix,
-  /tmp/**                              rw,
+  /usr/lib/bashio/**                              ix,
+  /tmp/**                                         rw,
+
+  # MariaDB
+  @{do_etc}/{services,my.cnf}                     r,
+  @{do_etc}/my.cnf.d/{,**}                        r,
+  @{do_usr}/share/mariadb/**                      r,
+  /usr/bin/mysql                                  Cx,
 
   # Options.json & addon data
-  /data                                r,
-  /data/**                             rw,
+  /data                                           r,
+  /data/**                                        rw,
 
   # Files needed for setup
-  @{do_etc}/hedgedoc/{,**}             rw,
+  @{do_etc}/hedgedoc/{,**}                        rw,
   @{do_opt}/hedgedoc/{.sequelizerc,config.json}   w,
-  @{do_opt}/hedgedoc/public/**         w,
-  @{do_etc}/services                   r,
-  @{do_etc}/my.cnf                     r,
-  @{do_etc}/my.cnf.d/{,**}             r,
-  @{do_usr}/share/mariadb/**           r,
-  @{do_opt}/hedgedoc/{,**}             r,
-  /ssl/{,**}                           r,
+  @{do_opt}/hedgedoc/public/**                    w,
+  @{do_opt}/hedgedoc/{,**}                        r,
+  /ssl/{,**}                                      r,
   link /opt/hedgedoc/config.json -> /etc/hedgedoc/config.json,
   link /opt/hedgedoc/public/** -> /data/hedgedoc/**,
 
   # Programs
-  /usr/bin/node                        cx,
-  /usr/bin/openssl                     Cx,
-  /usr/bin/mysql                       Cx,
-  /opt/hedgedoc/node_modules/sequelize-cli/lib/sequelize  Cx -> /usr/bin/node,
+  /usr/bin/openssl                                Cx,
+  /usr/bin/node                                   cx -> node,
+  /opt/hedgedoc/node_modules/sequelize-cli/lib/sequelize  Cx -> node,
 
-  profile /usr/bin/node flags=(attach_disconnected,mediate_deleted) {
+  profile node flags=(attach_disconnected,mediate_deleted) {
     include <abstractions/base>
 
-    # Receive signals from S6-Overlay & ourselves
-    signal receive,
-    signal peer=@{profile_name},
+    # Receive signals from s6
+    signal (receive) peer=*_hedgedoc,
 
     # Network access
     network tcp,
     network udp,
 
     # Addon data
-    /data/**                           r,
-    /data/hedgedoc/**                  rwk,
+    /data/**                                        r,
+    /data/hedgedoc/**                               rwk,
 
     # Config
-    @{do_etc}/hedgedoc/config.json     r,
-    @{do_opt}/hedgedoc/**              r,
-    /ssl/**                            r,
+    @{do_etc}/hedgedoc/config.json                  r,
+    @{do_opt}/hedgedoc/**                           r,
+    /ssl/**                                         r,
 
     # Executables
-    /opt/hedgedoc/bin/**               rix,
-    /usr/bin/node                      rix,
+    /opt/hedgedoc/bin/**                            rix,
+    /usr/bin/node                                   rix,
 
     # Runtime usage
-    /tmp/hedgedoc-**                   rw,
-    /bin/busybox                       rm,
-    @{do_etc}/hosts                    r,
-    @{do_etc}/resolv.conf              r,
-    @{do_etc}/ssl/openssl.cnf          r,
-    @{do_usr}/share/ca-certificates/** r,
-    @{PROC}/*/stat                     r,
-    @{PROC}/loadavg                    r,
+    owner /tmp/**                                   rw,
+    /bin/busybox                                    rm,
+    @{do_etc}/{hosts,resolv.conf}                   r,
+    @{do_etc}/ssl/openssl.cnf                       r,
+    @{do_usr}/share/ca-certificates/**              r,
+    @{PROC}/[1-9]*/stat                             r,
+    @{PROC}/loadavg                                 r,
     @{sys}/fs/cgroup/memory/memory.limit_in_bytes   r,
     /opt/hedgedoc/node_modules/*/prebuilds/**.node  rm,
   }
@@ -115,9 +110,9 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   profile /usr/bin/openssl flags=(attach_disconnected,mediate_deleted) {
     include <abstractions/base>
 
-    /data/dhparams.pem                 w,
-    /usr/bin/openssl                   rm,
-    @{do_etc}/ssl/openssl.cnf          r,
+    /data/dhparams.pem                              w,
+    /usr/bin/openssl                                rm,
+    @{do_etc}/ssl/openssl.cnf                       r,
   }
 
   profile /usr/bin/mysql flags=(attach_disconnected,mediate_deleted) {
