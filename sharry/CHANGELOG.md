@@ -1,25 +1,11 @@
 ## What’s changed
-
-Primary change of this release is addition of a custom apparmor profile for increased security of the addon. These profiles carefully control what can and cannot be used to ensure the service does not have access to anything more then strictly necessary. I did extensive testing to ensure it works with this profile in place but I definitely didn't exhaust every possible configuration option of Sharry so its possible some advanced configurations require access to a file or capability that is now being denied.
-
-If you encounter an issue please report it [here](https://github.com/mdegat01/addon-sharry/issues) and include details of your configuration and logs you saw.
-
 ## 🚀 Enhancements
 
-- Add custom apparmor profile @mdegat01 (#12)
-
-## 🧰 Maintenance
-
-- Add docker to dependabot @mdegat01 (#17)
-- Run CI nightly to check packages @mdegat01 (#19)
-- Add workflow to enforce specific labels on PRs @mdegat01 (#11)
+- Update Sharry from `1.6.0` to `1.7.0` @mdegat01 (#24)
 
 ## ⬆️ Dependency updates
 
-- Bump mariadb-client from 10.5.8-r0 to 10.5.9-r0 @mdegat01 (#15)
-- Bump addons base from `9.1.7` to `9.2.0` @mdegat01 (#16)
-- Bump alpine from 3.13.4 to 3.13.5 in /sharry @dependabot (#18)
-
-
-
-
+- Bump docker/setup-buildx-action from v1.1.2 to v1.2.0 @dependabot (#21)
+- Bump docker/setup-qemu-action from v1.0.2 to v1.1.0 @dependabot (#20)
+- Bump docker/login-action from v1.8.0 to v1.9.0 @dependabot (#22)
+- Bump docker/setup-buildx-action from v1.2.0 to v1.3.0 @dependabot (#23)
