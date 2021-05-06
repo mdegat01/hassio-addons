@@ -88,6 +88,9 @@ will not work. Check the [HedgeDoc docs][hedgedoc-docs] for more info.
 If users will use SSL to access HedgeDoc. Defaults to `false`. Ignored if `access.domain`
 is omitted.
 
+**Note**: _If `ssl` is `true` then this option becomes `true` as well and cannot
+be set to `false`._
+
 ### Option: `access.add_port`
 
 If users will include the port in the URL when accessing HedgeDoc. Defaults to
