@@ -1,11 +1,6 @@
 ## What’s changed
-## 🚨 Breaking changes
+## ⬆️ Dependency updates
 
-Another small breaking change that I don't think will actually affect anyone but noting just in case. (#65)
-
-In `1.8.1` HedgeDoc changed it so if `useSSL` is `true` then `protocolUseSSL` must also be `true`. `ssl` in the addon config is used to set `useSSL` and `access.use_ssl` is used to set `protocolUseSSL` so that means if `ssl` is `true` then `access.use_ssl` is also `true`. Documentation now notes this and if anyone happened to have a conflict between the two in their configuration then a warning is logged and `access.use_ssl` is removed from the addon configuration.
-
-## 🚀 Enhancements
-
-- Update to HedgeDoc to `1.8.1` @mdegat01 (#65)
-- Handle ssl option conflict during setup @mdegat01 (#66)
+- Bump brpaz/hadolint-action from v1.4.0 to v1.5.0 @dependabot (#67)
+- Update HedgeDoc to [1.8.2](https://github.com/hedgedoc/hedgedoc/releases/tag/1.8.2) @mdegat01 (#70)
+- Bump frenck/action-addon-linter from 2 to 2.1 @dependabot (#68)
