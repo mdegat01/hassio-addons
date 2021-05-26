@@ -75,7 +75,7 @@ SOFTWARE.
 [license]: https://github.com/mdegat01/addon-sharry/blob/main/LICENSE
 [license-shield]: https://img.shields.io/github/license/mdegat01/addon-sharry.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [releases-shield]: https://img.shields.io/github/release/mdegat01/addon-sharry.svg
 [releases]: https://github.com/mdegat01/addon-sharry/releases
 [sharry]: https://eikek.github.io/sharry/
