@@ -1,7 +1,7 @@
 {
   "name": "HedgeDoc",
   "url": "https://github.com/mdegat01/addon-hedgedoc",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "slug": "hedgedoc",
   "arch": [
     "aarch64",
