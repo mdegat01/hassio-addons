@@ -1,8 +1,11 @@
 ## What’s changed
+## ✨ New features
+
+- Update to HedgeDoc to `1.9.0` @mdegat01 (#101)
+
 ## ⬆️ Dependency updates
 
-- Bump dessant/lock-threads from 2.1.1 to 2.1.2 @dependabot (#92)
-- Bump docker/build-push-action from 2.6.1 to 2.7.0 @dependabot (#93)
-- Bump openssl to `1.1.1l-r0` @mdegat01 (#95)
-- Bump frenck/action-addon-linter from 2.2 to 2.3 @dependabot (#94)
-- Bump addon base to `10.0.2` @mdegat01 (#96)
+- Bump nodejs to `14.17.5-r0` @mdegat01 (#97)
+- Bump nodejs to `14.17.6-r0` @mdegat01 (#99)
+- Bump docker/setup-buildx-action from 1.5.1 to 1.6.0 @dependabot (#98)
+- Bump creyD/prettier_action from 3.3 to 4.0 @dependabot (#100)
