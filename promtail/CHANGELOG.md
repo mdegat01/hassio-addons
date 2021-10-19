@@ -1,18 +1,12 @@
 ## What’s changed
-Fixes issue #143 which was preventing the addon from working with publicly hosted services, like Graphana's Loki cloud service . Thanks @rj175 !
-
-## 🐛 Bug fixes
-
-- Allow access to default ssl certificates @rj175 (#144)
-
 ## ⬆️ Dependency updates
 
-- Bump frenck/action-addon-linter from 2.2 to 2.3 @dependabot (#134)
-- Bump yq to `4.12.1` @mdegat01 (#135)
-- Bump alpine from 3.14.1 to 3.14.2 in /promtail @dependabot (#136)
-- Bump yq to `4.12.2` @mdegat01 (#137)
-- Bump docker/setup-buildx-action from 1.5.1 to 1.6.0 @dependabot (#138)
-- Bump creyD/prettier_action from 3.3 to 4.0 @dependabot (#139)
-- Bump curl to `7.79.0-r0` @mdegat01 (#141)
-- Bump yq to `4.13.0` @mdegat01 (#140)
-- Bump yq to `4.13.2` @mdegat01 (#142)
+- Bump curl to `7.79.1-r0` @mdegat01 (#146)
+- Update addon debian base to `5.1.0` @mdegat01 (#145)
+- Bump frenck/action-addon-linter from 2.3 to 2.4 @dependabot (#147)
+- Bump dessant/lock-threads from 2.1.2 to 3 @dependabot (#148)
+- Bump addon debian base to `5.1.1` @mdegat01 (#150)
+- Bump yq to `4.13.3` @mdegat01 (#151)
+- Bump yq to `4.13.4` @mdegat01 (#152)
+- Bump actions/checkout from 2.3.4 to 2.3.5 @dependabot (#153)
+- Bump promtail journal to `1.2.1` @mdegat01 (#154)
