@@ -1,12 +1,16 @@
 ## What’s changed
+## 🚀 Enhancements
+
+- Update promtail journal base from `1.2.1` to [1.3.0](https://github.com/mdegat01/promtail-journal/releases/tag/v1.3.0) @mdegat01 (#162)
+  - This also updates Promtail to [2.4.1](https://github.com/grafana/loki/releases/tag/v2.4.1) (and covers the more significant minor bump to [2.4.0](https://github.com/grafana/loki/releases/tag/v2.4.0))
+
 ## ⬆️ Dependency updates
 
-- Bump curl to `7.79.1-r0` @mdegat01 (#146)
-- Update addon debian base to `5.1.0` @mdegat01 (#145)
-- Bump frenck/action-addon-linter from 2.3 to 2.4 @dependabot (#147)
-- Bump dessant/lock-threads from 2.1.2 to 3 @dependabot (#148)
-- Bump addon debian base to `5.1.1` @mdegat01 (#150)
-- Bump yq to `4.13.3` @mdegat01 (#151)
-- Bump yq to `4.13.4` @mdegat01 (#152)
-- Bump actions/checkout from 2.3.4 to 2.3.5 @dependabot (#153)
-- Bump promtail journal to `1.2.1` @mdegat01 (#154)
+- Bump yq to `4.13.5` @mdegat01 (#155)
+- Bump yq to `4.14.1` @mdegat01 (#156)
+- Bump frenck/action-addon-information from 1.2 to 1.3 @dependabot (#157)
+- Bump frenck/action-addon-linter from 2.4 to 2.5 @dependabot (#158)
+- Bump addon debian base to `5.2.0` @mdegat01 (#159)
+- Bump actions/checkout from 2.3.5 to 2.4.0 @dependabot (#160)
+- Bump addon debian base to `5.2.1` @mdegat01 (#161)
+- Bump addon debian base to `5.2.2` @mdegat01 (#163)
