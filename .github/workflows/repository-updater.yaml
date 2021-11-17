@@ -8,7 +8,7 @@ on:
 
 jobs:
   workflows:
-    uses: mdegat01/addons-workflows/.github/workflows/repository-updater.yaml@main
+    uses: mdegat01/addon-workflows/.github/workflows/repository-updater.yaml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       UPDATER_TOKEN: ${{ secrets.UPDATER_TOKEN }}
