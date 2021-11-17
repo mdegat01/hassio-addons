@@ -1,0 +1,17 @@
+---
+name: PR Labels
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+
+jobs:
+  workflows:
+    uses: mdegat01/addon-workflows/.github/workflows/pr-labels.yaml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
