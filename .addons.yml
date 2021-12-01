@@ -17,3 +17,7 @@ addons:
     repository: mdegat01/addon-sharry
     target: sharry
     image: ghcr.io/mdegat01/sharry/{arch}
+  amr2mqtt:
+    repository: mdegat01/addon-amr2mqtt
+    target: amr2mqtt
+    image: ghcr.io/mdegat01/amr2mqtt/{arch}
