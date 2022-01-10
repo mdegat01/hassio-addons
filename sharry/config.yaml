@@ -1,0 +1,45 @@
+arch:
+- aarch64
+- amd64
+auth_api: true
+description: Sharry for Home Assistant
+image: ghcr.io/mdegat01/sharry/{arch}
+name: Sharry
+options:
+  conf_overrides: []
+  default_language: us
+  domain: homeassistant.local
+  log_level: info
+  server_secret: null
+  share_max_size_gb: 1.5
+  share_max_valid_days: 365
+  use_ssl: false
+ports:
+  9090/tcp: 9090
+ports_description:
+  9090/tcp: HTTP listen port
+schema:
+  conf_overrides:
+  - property: match(^sharry[.]restserver[.][-.a-z0-9]+)
+    value: str
+  default_language: match([A-Za-z]{2})?
+  domain: match([^\/:]+)
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  remote_db_database: str?
+  remote_db_host: str?
+  remote_db_password: password?
+  remote_db_port: port?
+  remote_db_type: list(mariadb|postgres)?
+  remote_db_username: str?
+  reset_database: bool?
+  server_secret: password
+  share_max_size_gb: float(0.01,)?
+  share_max_valid_days: int(1,)?
+  use_ssl: bool?
+services:
+- mysql:want
+slug: sharry
+url: https://github.com/mdegat01/addon-sharry
+version: 1.4.3
+watchdog: http://[HOST]:9090/api/v2/open/info/version
+webui: http://[HOST]:[PORT:9090]
