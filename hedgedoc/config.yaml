@@ -1,0 +1,57 @@
+arch:
+- aarch64
+- amd64
+- armv7
+- armhf
+- i386
+description: HedgeDoc for Home Assistant
+image: ghcr.io/mdegat01/hedgedoc/{arch}
+map:
+- ssl
+name: HedgeDoc
+options:
+  access:
+    add_port: true
+    domain: homeassistant.local
+    session_days: 30
+    session_secret: null
+  csp_directives: []
+  env_vars: []
+  log_level: info
+  ssl: false
+ports:
+  3000/tcp: 3000
+ports_description:
+  3000/tcp: HTTP listen port
+schema:
+  access:
+    add_port: bool?
+    allow_email_registration: bool?
+    domain: match([^\/:]+)?
+    session_days: int(1,)?
+    session_secret: password?
+    use_ssl: bool?
+  certfile: str?
+  csp_directives:
+  - name: str
+    value: str
+  dhparamfile: str?
+  env_vars:
+  - name: match(^CMD_([A-Z0-9_])+$)
+    value: str
+  keyfile: str?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  remote_mysql_database: str?
+  remote_mysql_host: str?
+  remote_mysql_password: password?
+  remote_mysql_port: port?
+  remote_mysql_username: str?
+  reset_database: bool?
+  ssl: bool?
+services:
+- mysql:want
+slug: hedgedoc
+url: https://github.com/mdegat01/addon-hedgedoc
+version: 1.4.3
+watchdog: '[PROTO:ssl]://[HOST]:3000/status'
+webui: '[PROTO:ssl]://[HOST]:[PORT:3000]'
