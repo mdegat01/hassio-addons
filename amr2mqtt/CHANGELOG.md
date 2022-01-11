@@ -2,4 +2,4 @@
 
 ## 📚 Documentation
 
-- Add forum link and fix project stage badge @mdegat01 (#52)
+- Fix references to `watched_meters` in docs @mdegat01 (#53)
