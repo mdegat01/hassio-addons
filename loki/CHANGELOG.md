@@ -1,24 +1,23 @@
 ## What’s changed
 
+It appears something about the `2.4.0` release of Loki made the retention policy I put in place in the default config of this addon stop working. I personally noticed it this release when Loki was taking so long to start up due to its huge index that watchdog was restarting it before it could finish (watchdog polls it every 2 minutes if you have it on).
+
+This release fixes the retention policy so your `days_to_keep` value is honored again. If you are having trouble getting Loki working check your supervisor log for entries like this:
+
+```
+WARNING (MainThread) [supervisor.misc.tasks] Watchdog missing application response from 39bd2704_loki
+```
+
+If you see that, turn off watchdog and start Loki. Assuming it is able to get up and running then let it run for about 6 hours or so, the compactor should kick in and clean up the index by that point. After that you should be able to turn watchdog back on and proceed as normal.
+
+And please report an [issue](https://github.com/mdegat01/addon-loki/issues) if you are still seeing issues after that or aren't able to start Loki even with watchdog off.
+
 ## 🚀 Enhancements
 
-- Convert config from json to yaml @mdegat01 (#131)
-- Inherit org's PR and release drafter templates @mdegat01 (#132)
+- Stop subtracting one from `days_to_keep` @mdegat01 (#142)
 
-## 🧰 Maintenance
+## 🐛 Bug fixes
 
-- Centralize GitHub Action workflows @mdegat01 (#129)
-- Remove `GITHUB_TOKEN` input from all workflows @mdegat01 (#135)
-- Update maintenance/license year to 2022 @mdegat01 (#138)
-
-## 📚 Documentation
-
-- Add PR template @mdegat01 (#130)
-
-## ⬆️ Dependency updates
-
-- Bump alpine from 3.14.2 to 3.14.3 in /loki @dependabot (#127)
-- Bump addon base to `10.2.3` @mdegat01 (#128)
-- Bump alpine from 3.14.3 to 3.15.0 in /loki @dependabot (#133)
-- Bump addon base to `11.0.0` @mdegat01 (#134)
-- Bump addon base to `11.0.1` @mdegat01 (#137)
+- Fix retention by using compactor @mdegat01 (#139)
+- Needs access to ssl cnf file and files in `/tmp` @mdegat01 (#140)
+- Grant `rwk` access in `/tmp` to files owned by Loki user @mdegat01 (#141)
