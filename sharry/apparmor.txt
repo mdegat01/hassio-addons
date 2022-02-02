@@ -1,7 +1,8 @@
 include <tunables/global>
 
 # Docker overlay
-@{fs_root}=/ /docker/overlay2/*/diff/
+@{docker_root}=/docker/ /var/lib/docker/
+@{fs_root}=/ @{docker_root}/overlay2/*/diff/
 @{do_etc}=@{fs_root}/etc/
 @{do_opt}=@{fs_root}/opt/
 @{do_run}=@{fs_root}/{run,var/run}/
@@ -40,7 +41,7 @@ profile sharry flags=(attach_disconnected,mediate_deleted) {
   @{do_run}/**                                        rwk,
   /dev/tty                                            rw,
   @{do_usr}/lib/locale/{,**}                          r,
-  @{do_etc}/ssl/openssl.cnf                           r,
+  @{do_etc}/ssl{,1.1}/openssl.cnf                     r,
   @{do_etc}/{group,hosts,passwd,resolv.conf}          r,
   /dev/null                                           k,
 
@@ -89,7 +90,7 @@ profile sharry flags=(attach_disconnected,mediate_deleted) {
 
     # Authenticate with HA
     /usr/bin/curl                                     rix,
-    @{do_etc}/ssl/openssl.cnf                         r,
+    @{do_etc}/ssl{,1.1}/openssl.cnf                   r,
     @{do_etc}/{hosts,passwd,resolv.conf}              r,
 
     # Runtime usage
