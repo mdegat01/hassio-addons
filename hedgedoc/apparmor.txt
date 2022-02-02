@@ -1,7 +1,8 @@
 include <tunables/global>
 
 # Docker overlay
-@{fs_root}=/ /docker/overlay2/*/diff/
+@{docker_root}=/docker/ /var/lib/docker/
+@{fs_root}=/ @{docker_root}/overlay2/*/diff/
 @{do_etc}=@{fs_root}/etc/
 @{do_opt}=@{fs_root}/opt/
 @{do_run}=@{fs_root}/{run,var/run}/
@@ -40,7 +41,7 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
   @{do_run}/**                                    rwk,
   /dev/tty                                        rw,
   @{do_usr}/lib/locale/{,**}                      r,
-  @{do_etc}/ssl/openssl.cnf                       r,
+  @{do_etc}/ssl{,1.1}/openssl.cnf                 r,
   @{do_etc}/{group,hosts,passwd,resolv.conf}      r,
   /dev/null                                       k,
 
@@ -92,16 +93,16 @@ profile hedgedoc flags=(attach_disconnected,mediate_deleted) {
     /ssl/**                                         r,
 
     # Executables
+    /bin/busybox                                    rmix,
     /opt/hedgedoc/bin/**                            rix,
     /usr/bin/node                                   rix,
 
     # Runtime usage
     owner /tmp/**                                   rw,
-    /bin/busybox                                    rm,
     @{do_etc}/{hosts,resolv.conf}                   r,
-    @{do_etc}/ssl/openssl.cnf                       r,
+    @{do_etc}/ssl{,1.1}/openssl.cnf                 r,
     @{do_usr}/share/ca-certificates/**              r,
-    @{PROC}/[1-9]*/stat                             r,
+    @{PROC}/[1-9]*/{limits,stat}                    r,
     @{PROC}/loadavg                                 r,
     @{sys}/fs/cgroup/memory/memory.limit_in_bytes   r,
     /opt/hedgedoc/node_modules/*/prebuilds/**.node  rm,
