@@ -1,10 +1,11 @@
 ## What’s changed
 
-## 🐛 Bug fixes
+## 🚀 Enhancements
 
-- Allow access on docker root paths in debian @mdegat01 (#129)
-- Add access to ssl cnf file and other used files @mdegat01 (#128)
+- 🔒 Sign add-on with Codenotary Community Attestation Service (CAS) @mdegat01 (#134)
 
 ## ⬆️ Dependency updates
 
-- Bump nodejs to `16.13.2-r0` @mdegat01 (#130)
+- Bump mariadb-client, nodejs and openssl @mdegat01 (#132)
+- Bump hedgedoc/hedgedoc from 1.9.2-alpine to 1.9.3-alpine in /hedgedoc @dependabot (#131)
+- Bump hassio-addons/base to `11.1.2` @mdegat01 (#133)

@@ -4,6 +4,7 @@ arch:
 - armv7
 - armhf
 - i386
+codenotary: codenotary@degatano.com
 description: HedgeDoc for Home Assistant
 image: ghcr.io/mdegat01/hedgedoc/{arch}
 map:
@@ -52,6 +53,6 @@ services:
 - mysql:want
 slug: hedgedoc
 url: https://github.com/mdegat01/addon-hedgedoc
-version: 1.4.4
+version: 1.5.1
 watchdog: '[PROTO:ssl]://[HOST]:3000/status'
 webui: '[PROTO:ssl]://[HOST]:[PORT:3000]'
