@@ -3,10 +3,12 @@ arch:
 - amd64
 - armv7
 - armhf
+codenotary: codenotary@degatano.com
 description: Promtail for Home Assistant
 image: ghcr.io/mdegat01/promtail/{arch}
 journald: true
 map:
+- config
 - share
 - ssl
 name: Promtail
@@ -33,5 +35,5 @@ schema:
   skip_default_scrape_config: bool?
 slug: promtail
 url: https://github.com/mdegat01/addon-promtail
-version: 1.9.3
+version: 2.0.1
 watchdog: http://[HOST]:[PORT:9080]/ready
