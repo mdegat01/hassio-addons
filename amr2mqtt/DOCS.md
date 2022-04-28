@@ -22,6 +22,11 @@ This list isn't exhaustive so if you don't find your meter it may still work if
 you're willing to take a gamble and order a dongle anyway. But just bear in mind
 this solution is not universal and YMMV.
 
+**Update:** I had a number of issues with the NooElec. Lots of others seem to have
+success with it so maybe I got a bad one? It kept losing connection after a bit
+and I had to unplug it and plug it back in to fix it. I switched to [this one][rtl-sdr-com-dongle]
+from rtl-sdr.com and haven't had any issues since.
+
 ## Install
 
 First add the repository to the add-on store (`https://github.com/mdegat01/hassio-addons`):
@@ -212,6 +217,12 @@ Client ID to use when connecting to the MQTT broker.
 By default, the topics of all MQTT messages begins with `amr2mqtt/{meter_ID}`.
 If you set this option then the topics will begin with `{mqtt.base_topic}/{meter_id}`.
 
+### Option: `last_seen`
+
+Add `last_seen` field to each message with the current time in the specified format.
+Options are: `ISO_8601`, `ISO_8601_local`, and `epoch`. Disabled if omitted. Useful
+for detecting issues when meter normally reports in on a consistent interval.
+
 ### Option: `home_assistant_discovery_enabled`
 
 Set to `false` to disable the add-on from sending discovery messages for the
@@ -221,6 +232,15 @@ watched meters.
 
 Defaults to `homeassistant`. Set if you use a custom MQTT discovery prefix in
 Home Assistant.
+
+### Option: `rtlamr_symbol_length`
+
+Sets symbollength in the rtlamr command used internally. If you are having issues
+with high CPU usage, try lowering this number. Your goal should be to set it as
+low as possible while still seeing results from your meter(s).
+
+Valid values are: 8, 32, 40, 48, 56, 64, 72, 80, 88, 96. Default is 72. See [here][rtlamr-configuration]
+for more information on rtlamr and this option.
 
 ## Home Assistant
 
@@ -342,6 +362,8 @@ SOFTWARE.
 [ragingcomputer]: https://github.com/ragingcomputer
 [reddit-ll-issue]: https://www.reddit.com/r/RTLSDR/comments/bjc4mk/tweakstips_for_reading_meters_with_rtlamr/em8vnwn/
 [releases]: https://github.com/mdegat01/addon-amr2mqtt/releases
+[rtl-sdr-com-dongle]: https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/
 [rtl-sdr-dongle]: https://www.amazon.com/s?k=RTL2832U
+[rtlamr-configuration]: https://github.com/bemasher/rtlamr/wiki/Configuration
 [rtlamr-protocols]: https://github.com/bemasher/rtlamr/wiki/Protocol
 [semver]: http://semver.org/spec/v2.0.0
