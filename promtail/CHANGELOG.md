@@ -1,21 +1,13 @@
 ## What’s changed
 
-## 🚨 Breaking changes
+## 🐛 Bug fixes
 
-- Remove deprecated option for cafile outside /ssl @mdegat01 (#197)
-
-Would be pretty surprised if this affects anyone. The `cafile` option accepted file paths outside of `/ssl` but emitted a warning for a year or so. Now if you use this option, the file must be in `/ssl`.
+- Fix aa permission on fix-attrs.d @mdegat01 (#205)
+- Add /tmp access to promtail apparmor profile @pdecat (#200)
 
 ## 🚀 Enhancements
 
-- Update promtail to `2.5.0` @mdegat01 (#194)
-- Allow /config access to promtail folder only @mdegat01 (#195)
-- 🔒 Sign add-on with Codenotary Community Attestation Service (CAS) @mdegat01 (#196)
+- Fix permissions for s6 v3 and remove fix-attrs.d @mdegat01 (#201)
+- Remove extra build layer from dockerfile @mdegat01 (#203)
+- Use s6 init @mdegat01 (#204)
 
-## ⬆️ Dependency updates
-
-- Bump yq to `4.19.1` @mdegat01 (#186)
-- Bump libsystemd-dev to `247.3-7` @mdegat01 (#191)
-- Bump alpine from 3.15.0 to 3.15.4 in /promtail @dependabot (#190)
-- Bump hassio-addons/debian-base to `5.3.1` @mdegat01 (#192)
-- Bump yq to `4.24.5` @mdegat01 (#193)

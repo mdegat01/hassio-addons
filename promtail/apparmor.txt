@@ -28,11 +28,13 @@ profile promtail flags=(attach_disconnected,mediate_deleted) {
   /bin/**                                 rix,
   /usr/bin/**                             rix,
   @{do_etc}/s6/**                         rix,
+  @{do_etc}/fix-attrs.d/{,*}              r,
   @{do_etc}/services.d/{,**}              rwix,
   @{do_etc}/cont-{init,finish}.d/{,**}    rwix,
-  @{do_etc}/fix-attrs.d/{,**}             rw,
-  @{do_run}/s6/**                         rwix,
-  @{do_run}/**                            rwk,
+  @{do_run}/{s6,s6-rc*,service}/**        rwix,
+  /command/**                             rix,
+  /package/**                             rix,
+  @{do_run}/{,**}                         rwk,
   /dev/tty                                rw,
   @{do_usr}/lib/locale/{,**}              r,
   @{do_etc}/ssl/openssl.cnf               r,
@@ -69,6 +71,9 @@ profile promtail flags=(attach_disconnected,mediate_deleted) {
     network udp,
     network netlink raw,
     network unix dgram,
+
+    # Temp files
+    /tmp/.positions.yaml*                 rw,
 
     # Addon data
     /data/**                              r,
