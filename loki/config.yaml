@@ -6,6 +6,7 @@ arch:
 codenotary: codenotary@degatano.com
 description: Loki for Home Assistant
 image: ghcr.io/mdegat01/loki/{arch}
+init: false
 map:
 - share
 - ssl
@@ -29,5 +30,5 @@ schema:
 slug: loki
 startup: system
 url: https://github.com/mdegat01/addon-loki
-version: 1.10.1
+version: 1.10.2
 watchdog: http://[HOST]:3101/ready
