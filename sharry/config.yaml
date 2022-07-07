@@ -2,8 +2,10 @@ arch:
 - aarch64
 - amd64
 auth_api: true
+codenotary: codenotary@degatano.com
 description: Sharry for Home Assistant
 image: ghcr.io/mdegat01/sharry/{arch}
+init: false
 name: Sharry
 options:
   conf_overrides: []
@@ -13,6 +15,7 @@ options:
   server_secret: null
   share_max_size_gb: 1.5
   share_max_valid_days: 365
+  theme: light
   use_ssl: false
 ports:
   9090/tcp: 9090
@@ -35,11 +38,12 @@ schema:
   server_secret: password
   share_max_size_gb: float(0.01,)?
   share_max_valid_days: int(1,)?
+  theme: list(light|dark)?
   use_ssl: bool?
 services:
 - mysql:want
 slug: sharry
 url: https://github.com/mdegat01/addon-sharry
-version: 1.4.4
+version: 2.0.0
 watchdog: http://[HOST]:9090/api/v2/open/info/version
 webui: http://[HOST]:[PORT:9090]
