@@ -1,5 +1,5 @@
 ## What’s changed
 
-## ⬆️ Dependency updates
+## 🐛 Bug fixes
 
-- Bump addon base to `12.2.3` @mdegat01 (#146)
+- Set exit code in finish script @mdegat01 (#147)
