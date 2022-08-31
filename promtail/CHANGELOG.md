@@ -2,12 +2,14 @@
 
 ## 🐛 Bug fixes
 
-- Fix aa permission on fix-attrs.d @mdegat01 (#205)
-- Add /tmp access to promtail apparmor profile @pdecat (#200)
+- Set exit code in finish script @mdegat01 (#215)
 
 ## 🚀 Enhancements
 
-- Fix permissions for s6 v3 and remove fix-attrs.d @mdegat01 (#201)
-- Remove extra build layer from dockerfile @mdegat01 (#203)
-- Use s6 init @mdegat01 (#204)
+- Adjust s6 aa permissions for v3 @mdegat01 (#207)
+- Update promtail to 2.6.1 @mdegat01 (#217)
 
+## ⬆️ Dependency updates
+
+- Bump addon debian base 6.1.1 @mdegat01 (#206, #213)
+- Bump yq to 4.27.3 @mdegat01 (#211, #214)

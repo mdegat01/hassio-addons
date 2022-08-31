@@ -27,11 +27,11 @@ profile promtail flags=(attach_disconnected,mediate_deleted) {
   /init                                   rix,
   /bin/**                                 rix,
   /usr/bin/**                             rix,
-  @{do_etc}/s6/**                         rix,
-  @{do_etc}/fix-attrs.d/{,*}              r,
-  @{do_etc}/services.d/{,**}              rwix,
+  @{do_etc}/s6*/**                        r,
+  @{do_etc}/fix-attrs.d/{,**}             r,
   @{do_etc}/cont-{init,finish}.d/{,**}    rwix,
-  @{do_run}/{s6,s6-rc*,service}/**        rwix,
+  @{do_etc}/services.d/{,**}              rwix,
+  @{do_run}/{s6,s6-rc*,service}/**        rix,
   /command/**                             rix,
   /package/**                             rix,
   @{do_run}/{,**}                         rwk,
@@ -41,6 +41,11 @@ profile promtail flags=(attach_disconnected,mediate_deleted) {
   @{do_etc}/{group,hosts,passwd}          r,
   @{do_etc}/{host,nsswitch,resolv}.conf   r,
   /dev/null                               k,
+
+  # https://github.com/hassio-addons/addon-debian-base/blob/main/base/rootfs/etc/cont-init.d/02-set-timezone.sh
+  # Wants to link /etc/localtime but apparmor sees a random hash so * it is.
+  @{do_etc}/*                             rw,
+  @{do_usr}/share/zoneinfo/{,**}          r,
 
   # Bashio
   /usr/lib/bashio/**                      ix,
